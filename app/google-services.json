@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "782696652033",
+    "firebase_url": "https://civplanner.firebaseio.com",
+    "project_id": "civplanner",
+    "storage_bucket": "civplanner.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:782696652033:android:37fc659455d70e24870f00",
+        "android_client_info": {
+          "package_name": "com.example.javaharkka"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "782696652033-6l9j8jo43ivf0n9v4ep2fvae2h7qpj05.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDszYbdRWQ5DvUE7Dq5-YJNFX8XmemZMfU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "782696652033-6l9j8jo43ivf0n9v4ep2fvae2h7qpj05.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
