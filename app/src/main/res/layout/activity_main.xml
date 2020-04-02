@@ -10,7 +10,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Civ V Buddy"
+        android:text="CivPlanner"
         android:textSize="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -19,10 +19,10 @@
         app:layout_constraintVertical_bias="0.321" />
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="75dp"
-        android:layout_height="43dp"
-        android:text="Log in"
+        android:id="@+id/btnLogout"
+        android:layout_width="60sp"
+        android:layout_height="60sp"
+        android:text="Log\nout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

@@ -58,7 +58,7 @@ public class Register extends AppCompatActivity {
         });
         }
     private void setupUI(){
-        userName = (EditText) findViewById(R.id.etUsername);
+        userName = (EditText) findViewById(R.id.etEmail);
         userPassword = (EditText) findViewById(R.id.etPassword);
         userEmail = (EditText) findViewById(R.id.etEmail);
         regBtn = (Button) findViewById(R.id.btnRegister);
@@ -68,13 +68,13 @@ public class Register extends AppCompatActivity {
      private Boolean validate() {
      Boolean result = false;
      String name = userName.getText().toString();
-     String userpswrd1 = userPassword.getText().toString();
-     String userpswrd2 = userEmail.getText().toString();
-     if(name.isEmpty() && userpswrd1.isEmpty() && userpswrd2.isEmpty()){
-         Toast.makeText(this,"Please verify that you entered the info correctly.", Toast.LENGTH_SHORT);
+     String userpswrd = userPassword.getText().toString();
+     String useremail = userEmail.getText().toString();
+     if(name.isEmpty() || userpswrd.isEmpty() || useremail.isEmpty()){
+         Toast.makeText(this,"Please verify that you entered the info correctly.", Toast.LENGTH_SHORT).show();
      } else {
          result = true;
      }
-     return true;
+     return result;
     }
 }
