@@ -15,6 +15,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class Register extends AppCompatActivity {
 
@@ -22,17 +24,23 @@ public class Register extends AppCompatActivity {
     private Button regBtn;
     private TextView userLogin;
     private FirebaseAuth fbAuth;
+    private String name, userpswrd, useremail;
+    private FirebaseDatabase fbData;
+    private DatabaseReference dbRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
+        fbData = FirebaseDatabase.getInstance();
+        dbRef = fbData.getReference();
         setupUI();
         fbAuth = FirebaseAuth.getInstance();
         regBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                dbRef.setValue("jonne");
                 if (validate()){
                     String user_mail = userEmail.getText().toString().trim();
                     String user_password = userPassword.getText().toString().trim();
@@ -40,8 +48,9 @@ public class Register extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful()){
-                            Toast.makeText(Register.this, "Registration succesful!",Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(Register.this, Login.class));
+                                addUser();
+                                Toast.makeText(Register.this, "Registration succesful!",Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(Register.this, Login.class));
                             } else {
                                 Toast.makeText(Register.this, "Registration failed",Toast.LENGTH_SHORT).show();
                             }
@@ -58,7 +67,7 @@ public class Register extends AppCompatActivity {
         });
         }
     private void setupUI(){
-        userName = (EditText) findViewById(R.id.etEmail);
+        userName = (EditText) findViewById(R.id.etUsername);
         userPassword = (EditText) findViewById(R.id.etPassword);
         userEmail = (EditText) findViewById(R.id.etEmail);
         regBtn = (Button) findViewById(R.id.btnRegister);
@@ -67,14 +76,19 @@ public class Register extends AppCompatActivity {
 
      private Boolean validate() {
      Boolean result = false;
-     String name = userName.getText().toString();
-     String userpswrd = userPassword.getText().toString();
-     String useremail = userEmail.getText().toString();
+     name = userName.getText().toString();
+     userpswrd = userPassword.getText().toString();
+     useremail = userEmail.getText().toString();
      if(name.isEmpty() || userpswrd.isEmpty() || useremail.isEmpty()){
          Toast.makeText(this,"Please verify that you entered the info correctly.", Toast.LENGTH_SHORT).show();
      } else {
          result = true;
      }
      return result;
+    }
+
+    private void addUser(){ // Tässä funktiossa rekisteröityvän käyttäjän tiedot lisätään tietokannan alkion "Users" lapsiksi.
+        Userdata userData = new Userdata(name, useremail);
+        dbRef.setValue("jonne");
     }
 }
