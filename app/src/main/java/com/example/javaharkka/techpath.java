@@ -14,6 +14,11 @@ public class techpath extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_techpath);
+
+        Intent intent = getIntent();
+        Plan plan = (Plan) intent.getSerializableExtra("plan");
+        System.out.println(plan.orientation);
+
         Button firsttechButton = (Button) findViewById(R.id.firsttechButton);
         ImageButton returnButton = (ImageButton) findViewById(R.id.returnButton);
 

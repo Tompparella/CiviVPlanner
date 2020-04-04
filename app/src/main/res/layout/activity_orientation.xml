@@ -20,31 +20,31 @@
         app:layout_constraintVertical_bias="0.375" />
 
     <Button
-        android:id="@+id/cultButton"
+        android:id="@+id/cultBtn"
         android:layout_width="118dp"
         android:layout_height="40dp"
         android:text="Culture"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/diploButton"
+        app:layout_constraintEnd_toStartOf="@+id/diploBtn"
         app:layout_constraintHorizontal_bias="0.783"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.476" />
 
     <Button
-        android:id="@+id/conqButton"
+        android:id="@+id/conqBtn"
         android:layout_width="118dp"
         android:layout_height="40dp"
         android:text="Conquest"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/techButton"
+        app:layout_constraintEnd_toStartOf="@+id/techBtn"
         app:layout_constraintHorizontal_bias="0.783"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cultButton"
+        app:layout_constraintTop_toBottomOf="@+id/cultBtn"
         app:layout_constraintVertical_bias="0.049" />
 
     <Button
-        android:id="@+id/diploButton"
+        android:id="@+id/diploBtn"
         android:layout_width="118dp"
         android:layout_height="40dp"
         android:text="Diplomatic"
@@ -56,7 +56,7 @@
         app:layout_constraintVertical_bias="0.476" />
 
     <Button
-        android:id="@+id/techButton"
+        android:id="@+id/techBtn"
         android:layout_width="118dp"
         android:layout_height="40dp"
         android:text="Technology"
@@ -64,7 +64,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.733"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/diploButton"
+        app:layout_constraintTop_toBottomOf="@+id/diploBtn"
         app:layout_constraintVertical_bias="0.049" />
 
     <ImageButton

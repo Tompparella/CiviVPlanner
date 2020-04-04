@@ -14,10 +14,11 @@ public class orientationActivity extends AppCompatActivity implements View.OnCli
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_orientation);
-        Button tech_button = (Button) findViewById(R.id.techButton);
-        Button cult_button = (Button) findViewById(R.id.cultButton);
-        Button diplo_button = (Button) findViewById(R.id.diploButton);
-        Button conq_button = (Button) findViewById(R.id.conqButton);
+
+        Button tech_button = (Button) findViewById(R.id.techBtn);
+        Button cult_button = (Button) findViewById(R.id.cultBtn);
+        Button diplo_button = (Button) findViewById(R.id.diploBtn);
+        Button conq_button = (Button) findViewById(R.id.conqBtn);
         tech_button.setOnClickListener(this);
         cult_button.setOnClickListener(this);
         diplo_button.setOnClickListener(this);
@@ -34,21 +35,27 @@ public class orientationActivity extends AppCompatActivity implements View.OnCli
 
     @Override
     public void onClick(View v) {
+        Plan plan = new Plan();
         switch (v.getId()) {
-            case R.id.techButton:
+            case R.id.techBtn:
+                plan.setOrientation("tech");
                 break;
-            case R.id.cultButton:
+            case R.id.cultBtn:
+                plan.setOrientation("cult");
                 break;
-            case R.id.diploButton:
+            case R.id.diploBtn:
+                plan.setOrientation("diplo");
                 break;
-            case R.id.conqButton:
+            case R.id.conqBtn:
+                plan.setOrientation("conq");
                 break;
         }
-        openTech();
+        openTech(plan);
     }
 
-    public void openTech() {
+    public void openTech(Plan plan) {
         Intent intent = new Intent(this, techpath.class);
+        intent.putExtra("plan", plan);
         startActivity(intent);
     }
 }

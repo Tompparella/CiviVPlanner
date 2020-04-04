@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -33,14 +34,11 @@ public class Register extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        fbData = FirebaseDatabase.getInstance();
-        dbRef = fbData.getReference();
         setupUI();
         fbAuth = FirebaseAuth.getInstance();
         regBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dbRef.setValue("jonne");
                 if (validate()){
                     String user_mail = userEmail.getText().toString().trim();
                     String user_password = userPassword.getText().toString().trim();
@@ -88,7 +86,16 @@ public class Register extends AppCompatActivity {
     }
 
     private void addUser(){ // Tässä funktiossa rekisteröityvän käyttäjän tiedot lisätään tietokannan alkion "Users" lapsiksi.
-        Userdata userData = new Userdata(name, useremail);
-        dbRef.setValue("jonne");
+        fbData = FirebaseDatabase.getInstance();
+        dbRef = fbData.getReference().child("Users");
+        Users userData = new Users(name, useremail);
+        try{
+            System.out.println("Homma alkaa");
+            dbRef.child(fbAuth.getUid()).setValue(userData);
+            System.out.println("Homma loppuu");
+        } catch(Exception e){
+            System.out.println("Eei toiimi :(");
+            System.out.println(e);
+        }
     }
 }
