@@ -56,6 +56,7 @@ public class orientationActivity extends AppCompatActivity implements View.OnCli
     public void openTech(Plan plan) {
         Intent intent = new Intent(this, techpath.class);
         intent.putExtra("plan", plan);
+        finish();
         startActivity(intent);
     }
 }

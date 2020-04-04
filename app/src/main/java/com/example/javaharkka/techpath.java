@@ -10,13 +10,15 @@ import android.widget.ImageButton;
 
 public class techpath extends AppCompatActivity {
 
+    private Plan plan;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_techpath);
 
         Intent intent = getIntent();
-        Plan plan = (Plan) intent.getSerializableExtra("plan");
+        plan = (Plan) intent.getSerializableExtra("plan");
         System.out.println(plan.orientation);
 
         Button firsttechButton = (Button) findViewById(R.id.firsttechButton);
@@ -26,6 +28,9 @@ public class techpath extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
+                Intent intent = new Intent(techpath.this, orientationActivity.class);
+                intent.putExtra("plan", plan);
+                startActivity(intent);
             }
         });
         firsttechButton.setOnClickListener(new View.OnClickListener() {
@@ -44,10 +49,14 @@ public class techpath extends AppCompatActivity {
     }
     public void openTechmenu(){
         Intent intent = new Intent(this,techpathmenu.class);
+        intent.putExtra("plan",plan);
+        finish();
         startActivity(intent);
     }
     public void openNext(){
         Intent intent = new Intent(this,policypath.class);
+        intent.putExtra("plan",plan);
+        finish();
         startActivity(intent);
     }
 }
