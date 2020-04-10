@@ -2,27 +2,40 @@ package com.example.javaharkka;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.List;
 
 public class Plan implements Serializable {
 
-    String orientation;
-    List techOrder = new ArrayList();
+    public String orientation,description,planName,creator,creatorId;
+    public ArrayList<EntryItem> techOrder = new ArrayList();
+    public ArrayList<PolicyItem> policyOrder = new ArrayList();
+
 
     public void setOrientation(String orientation) {
         this.orientation = orientation;
     }
 
-    public void addTech(String tech) {
+    public void addTech(EntryItem tech) {
         techOrder.add(tech);
+    }
+
+    public void addPolicy(PolicyItem item){
+        policyOrder.add(item);
+    }
+
+    public void printPolicies(){
+        for (int i = 0; i < policyOrder.size(); i++){
+            System.out.println(policyOrder.get(i).getPolicyName());
+        }
     }
 
     public void printTechs() {
         for (int i = 0; i < techOrder.size(); i++) {
-            System.out.println(techOrder.get(i));
+            System.out.println(techOrder.get(i).getTechName());
         }
     }
-    public int getSize(){
-        return techOrder.size();
+
+    public String getTech(int i){
+        return String.valueOf(techOrder.get(i));
     }
+
 }

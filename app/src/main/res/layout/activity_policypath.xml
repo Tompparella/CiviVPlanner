@@ -8,49 +8,866 @@
 
     <HorizontalScrollView
         android:id="@+id/horizontalScrollView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="393dp"
+        android:layout_height="484dp"
         android:clipToPadding="true"
-        app:layout_constraintBottom_toTopOf="@+id/nextButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/policypathText">
 
-        <LinearLayout
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:clipToPadding="true"
-            android:orientation="horizontal"
-            tools:layout_editor_absoluteX="-91dp"
-            tools:layout_editor_absoluteY="67dp">
+            android:layout_height="match_parent">
 
-            <ImageView
-                android:id="@+id/imageView2"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:adjustViewBounds="true"
-                app:srcCompat="@drawable/allsocialpolicies" />
-        </LinearLayout>
+                android:layout_height="match_parent">
+
+                <Button
+                    android:id="@+id/btnLiberty"
+                    android:layout_width="127dp"
+                    android:layout_height="29dp"
+                    android:background="#57FFFFFF"
+                    android:textAllCaps="false"
+                    android:textColor="#FFFF79"
+                    android:textSize="22sp"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.27"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.098" />
+
+                <Button
+                    android:id="@+id/btnHonor"
+                    android:layout_width="127dp"
+                    android:layout_height="29dp"
+                    android:background="#57FFFFFF"
+                    android:textColor="#FFFF79"
+                    android:textSize="22sp"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.098" />
+
+                <Button
+                    android:id="@+id/btnRationalism"
+                    android:layout_width="127dp"
+                    android:layout_height="29dp"
+                    android:background="#57FFFFFF"
+                    android:textColor="#FFFF79"
+                    android:textSize="22sp"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.269"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.617" />
+
+                <Button
+                    android:id="@+id/btnExploration"
+                    android:layout_width="127dp"
+                    android:layout_height="29dp"
+                    android:background="#57FFFFFF"
+                    android:textColor="#FFFF79"
+                    android:textSize="22sp"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.617" />
+
+                <Button
+                    android:id="@+id/btnPiety"
+                    android:layout_width="127dp"
+                    android:layout_height="29dp"
+                    android:background="#57FFFFFF"
+                    android:textColor="#FFFF79"
+                    android:textSize="22sp"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.731"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.098" />
+
+                <Button
+                    android:id="@+id/btnCommerce"
+                    android:layout_width="127dp"
+                    android:layout_height="29dp"
+                    android:background="#57FFFFFF"
+                    android:textColor="#FFFF79"
+                    android:textSize="22sp"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.73"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.617" />
+
+                <Button
+                    android:id="@+id/btnPatronage"
+                    android:layout_width="127dp"
+                    android:layout_height="29dp"
+                    android:background="#57FFFFFF"
+                    android:textColor="#FFFF79"
+                    android:textSize="22sp"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.96"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.098" />
+
+                <Button
+                    android:id="@+id/btnAesthetics"
+                    android:layout_width="127dp"
+                    android:layout_height="29dp"
+                    android:background="#57FFFFFF"
+                    android:textColor="#FFFF79"
+                    android:textSize="22sp"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.96"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.617" />
+
+                <Button
+                    android:id="@+id/btnTradition"
+                    android:layout_width="127dp"
+                    android:layout_height="29dp"
+                    android:background="#57FFFFFF"
+                    android:textColor="#FFFF79"
+                    android:textSize="22sp"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.034"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.099" />
+
+                <Button
+                    android:id="@+id/btnWagon"
+                    android:layout_width="35dp"
+                    android:layout_height="33dp"
+                    android:background="#57FFFFFF"
+                    android:textColor="#FFFF79"
+                    android:textSize="22sp"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.676"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.72" />
+
+                <Button
+                    android:id="@+id/btnMercen"
+                    android:layout_width="35dp"
+                    android:layout_height="33dp"
+                    android:background="#57FFFFFF"
+                    android:textColor="#FFFF79"
+                    android:textSize="22sp"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.735"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.72" />
+
+                <Button
+                    android:id="@+id/btnEntre"
+                    android:layout_width="35dp"
+                    android:layout_height="33dp"
+                    android:background="#57FFFFFF"
+                    android:textColor="#FFFF79"
+                    android:textSize="22sp"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.674"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.84" />
+
+                <Button
+                    android:id="@+id/btnMercant"
+                    android:layout_width="35dp"
+                    android:layout_height="33dp"
+                    android:background="#57FFFFFF"
+                    android:textColor="#FFFF79"
+                    android:textSize="22sp"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.735"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.84" />
+
+                <Button
+                    android:id="@+id/btnProtect"
+                    android:layout_width="35dp"
+                    android:layout_height="33dp"
+                    android:background="#57FFFFFF"
+                    android:textColor="#FFFF79"
+                    android:textSize="22sp"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.733"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.964" />
+
+                <Button
+                    android:id="@+id/btnCultur"
+                    android:layout_width="35dp"
+                    android:layout_height="33dp"
+                    android:background="#57FFFFFF"
+                    android:textColor="#FFFF79"
+                    android:textSize="22sp"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.878"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.72" />
+
+                <Button
+                    android:id="@+id/btnFine"
+                    android:layout_width="35dp"
+                    android:layout_height="33dp"
+                    android:background="#57FFFFFF"
+                    android:textColor="#FFFF79"
+                    android:textSize="22sp"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.939"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.72" />
+
+                <Button
+                    android:id="@+id/btnFlour"
+                    android:layout_width="35dp"
+                    android:layout_height="33dp"
+                    android:background="#57FFFFFF"
+                    android:textColor="#FFFF79"
+                    android:textSize="22sp"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.878"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.84" />
+
+                <Button
+                    android:id="@+id/btnArtist"
+                    android:layout_width="35dp"
+                    android:layout_height="33dp"
+                    android:background="#57FFFFFF"
+                    android:textColor="#FFFF79"
+                    android:textSize="22sp"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.942"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.84" />
+
+                <Button
+                    android:id="@+id/btnCulex"
+                    android:layout_width="35dp"
+                    android:layout_height="33dp"
+                    android:background="#57FFFFFF"
+                    android:textColor="#FFFF79"
+                    android:textSize="22sp"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.88"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.964" />
+
+                <Button
+                    android:id="@+id/btnNavig"
+                    android:layout_width="35dp"
+                    android:layout_height="33dp"
+                    android:background="#57FFFFFF"
+                    android:textColor="#FFFF79"
+                    android:textSize="22sp"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.53"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.84" />
+
+                <Button
+                    android:id="@+id/btnMaritime"
+                    android:layout_width="35dp"
+                    android:layout_height="33dp"
+                    android:background="#57FFFFFF"
+                    android:textColor="#FFFF79"
+                    android:textSize="22sp"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.473"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.72" />
+
+                <Button
+                    android:id="@+id/btnNaval"
+                    android:layout_width="35dp"
+                    android:layout_height="33dp"
+                    android:background="#57FFFFFF"
+                    android:textColor="#FFFF79"
+                    android:textSize="22sp"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.473"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.84" />
+
+                <Button
+                    android:id="@+id/btnTreasure"
+                    android:layout_width="35dp"
+                    android:layout_height="33dp"
+                    android:background="#57FFFFFF"
+                    android:textColor="#FFFF79"
+                    android:textSize="22sp"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.473"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.964" />
+
+                <Button
+                    android:id="@+id/btnMernavy"
+                    android:layout_width="35dp"
+                    android:layout_height="33dp"
+                    android:background="#57FFFFFF"
+                    android:textColor="#FFFF79"
+                    android:textSize="22sp"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.528"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.72" />
+
+                <Button
+                    android:id="@+id/btnScien"
+                    android:layout_width="35dp"
+                    android:layout_height="33dp"
+                    android:background="#57FFFFFF"
+                    android:textColor="#FFFF79"
+                    android:textSize="22sp"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.267"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.964" />
+
+                <Button
+                    android:id="@+id/btnFree"
+                    android:layout_width="35dp"
+                    android:layout_height="33dp"
+                    android:background="#57FFFFFF"
+                    android:textColor="#FFFF79"
+                    android:textSize="22sp"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.325"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.84" />
+
+                <Button
+                    android:id="@+id/btnSover"
+                    android:layout_width="35dp"
+                    android:layout_height="33dp"
+                    android:background="#57FFFFFF"
+                    android:textColor="#FFFF79"
+                    android:textSize="22sp"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.267"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.84" />
+
+                <Button
+                    android:id="@+id/btnHuman"
+                    android:layout_width="35dp"
+                    android:layout_height="33dp"
+                    android:background="#57FFFFFF"
+                    android:textColor="#FFFF79"
+                    android:textSize="22sp"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.325"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.727" />
+
+                <Button
+                    android:id="@+id/btnSecul"
+                    android:layout_width="35dp"
+                    android:layout_height="33dp"
+                    android:background="#57FFFFFF"
+                    android:textColor="#FFFF79"
+                    android:textSize="22sp"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.267"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.727" />
+
+                <Button
+                    android:id="@+id/btnPhila"
+                    android:layout_width="35dp"
+                    android:layout_height="33dp"
+                    android:background="#57FFFFFF"
+                    android:textColor="#FFFF79"
+                    android:textSize="22sp"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.88"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.199" />
+
+                <Button
+                    android:id="@+id/btnConsul"
+                    android:layout_width="35dp"
+                    android:layout_height="33dp"
+                    android:background="#57FFFFFF"
+                    android:textColor="#FFFF79"
+                    android:textSize="22sp"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.939"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.197" />
+
+                <Button
+                    android:id="@+id/btnScholas"
+                    android:layout_width="35dp"
+                    android:layout_height="33dp"
+                    android:background="#57FFFFFF"
+                    android:textColor="#FFFF79"
+                    android:textSize="22sp"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.879"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.319" />
+
+                <Button
+                    android:id="@+id/btnCuldip"
+                    android:layout_width="35dp"
+                    android:layout_height="33dp"
+                    android:background="#57FFFFFF"
+                    android:textColor="#FFFF79"
+                    android:textSize="22sp"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.88"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.441" />
+
+                <Button
+                    android:id="@+id/btnMercon"
+                    android:layout_width="35dp"
+                    android:layout_height="33dp"
+                    android:background="#57FFFFFF"
+                    android:textColor="#FFFF79"
+                    android:textSize="22sp"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.938"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.441" />
+
+                <Button
+                    android:id="@+id/btnOrg"
+                    android:layout_width="35dp"
+                    android:layout_height="33dp"
+                    android:background="#57FFFFFF"
+                    android:textColor="#FFFF79"
+                    android:textSize="22sp"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.676"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.199" />
+
+                <Button
+                    android:id="@+id/btnMand"
+                    android:layout_width="35dp"
+                    android:layout_height="33dp"
+                    android:background="#57FFFFFF"
+                    android:textColor="#FFFF79"
+                    android:textSize="22sp"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.764"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.197" />
+
+                <Button
+                    android:id="@+id/btnTheo"
+                    android:layout_width="35dp"
+                    android:layout_height="33dp"
+                    android:background="#57FFFFFF"
+                    android:textColor="#FFFF79"
+                    android:textSize="22sp"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.646"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.319" />
+
+                <Button
+                    android:id="@+id/btnRelitor"
+                    android:layout_width="35dp"
+                    android:layout_height="33dp"
+                    android:background="#57FFFFFF"
+                    android:textColor="#FFFF79"
+                    android:textSize="22sp"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.706"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.319" />
+
+                <Button
+                    android:id="@+id/btnReform"
+                    android:layout_width="35dp"
+                    android:layout_height="33dp"
+                    android:background="#57FFFFFF"
+                    android:textColor="#FFFF79"
+                    android:textSize="22sp"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.703"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.441" />
+
+                <Button
+                    android:id="@+id/btnDisci"
+                    android:layout_width="35dp"
+                    android:layout_height="33dp"
+                    android:background="#57FFFFFF"
+                    android:textColor="#FFFF79"
+                    android:textSize="22sp"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.53"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.199" />
+
+                <Button
+                    android:id="@+id/btnMiltra"
+                    android:layout_width="35dp"
+                    android:layout_height="33dp"
+                    android:background="#57FFFFFF"
+                    android:textColor="#FFFF79"
+                    android:textSize="22sp"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.473"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.319" />
+
+                <Button
+                    android:id="@+id/btnmilcas"
+                    android:layout_width="35dp"
+                    android:layout_height="33dp"
+                    android:background="#57FFFFFF"
+                    android:textColor="#FFFF79"
+                    android:textSize="22sp"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.53"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.319" />
+
+                <Button
+                    android:id="@+id/btnProf"
+                    android:layout_width="35dp"
+                    android:layout_height="33dp"
+                    android:background="#57FFFFFF"
+                    android:textColor="#FFFF79"
+                    android:textSize="22sp"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.529"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.441" />
+
+                <Button
+                    android:id="@+id/btnRepu"
+                    android:layout_width="35dp"
+                    android:layout_height="33dp"
+                    android:background="#57FFFFFF"
+                    android:textColor="#FFFF79"
+                    android:textSize="22sp"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.239"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.199" />
+
+                <Button
+                    android:id="@+id/btnCit"
+                    android:layout_width="35dp"
+                    android:layout_height="33dp"
+                    android:background="#57FFFFFF"
+                    android:textColor="#FFFF79"
+                    android:textSize="22sp"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.325"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.199" />
+
+                <Button
+                    android:id="@+id/btnCol"
+                    android:layout_width="35dp"
+                    android:layout_height="32dp"
+                    android:background="#57FFFFFF"
+                    android:textColor="#FFFF79"
+                    android:textSize="22sp"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.238"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.318" />
+
+                <Button
+                    android:id="@+id/btnRep"
+                    android:layout_width="35dp"
+                    android:layout_height="33dp"
+                    android:background="#57FFFFFF"
+                    android:textColor="#FFFF79"
+                    android:textSize="22sp"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.297"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.318" />
+
+                <Button
+                    android:id="@+id/btnMerit"
+                    android:layout_width="35dp"
+                    android:layout_height="33dp"
+                    android:background="#57FFFFFF"
+                    android:textColor="#FFFF79"
+                    android:textSize="22sp"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.353"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.318" />
+
+                <Button
+                    android:id="@+id/btnAristo"
+                    android:layout_width="35dp"
+                    android:layout_height="32dp"
+                    android:background="#57FFFFFF"
+                    android:textColor="#FFFF79"
+                    android:textSize="22sp"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.034"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.198" />
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="797dp"
+                    android:layout_height="478dp"
+                    android:layout_marginStart="1dp"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginBottom="3dp"
+                    android:adjustViewBounds="true"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/policytree" />
+
+                <Button
+                    android:id="@+id/btnWar"
+                    android:layout_width="35dp"
+                    android:layout_height="33dp"
+                    android:background="#57FFFFFF"
+                    android:textColor="#FFFF79"
+                    android:textSize="22sp"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.473"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.199" />
+
+                <Button
+                    android:id="@+id/btnOlig"
+                    android:layout_width="35dp"
+                    android:layout_height="33dp"
+                    android:background="#57FFFFFF"
+                    android:textColor="#FFFF79"
+                    android:textSize="22sp"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.091"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.199" />
+
+                <Button
+                    android:id="@+id/btnLegal"
+                    android:layout_width="35dp"
+                    android:layout_height="33dp"
+                    android:background="#57FFFFFF"
+                    android:textColor="#FFFF79"
+                    android:textSize="22sp"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.09"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.318" />
+
+                <Button
+                    android:id="@+id/btnLand"
+                    android:layout_width="35dp"
+                    android:layout_height="33dp"
+                    android:background="#57FFFFFF"
+                    android:textColor="#FFFF79"
+                    android:textSize="22sp"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.062"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.44" />
+
+                <Button
+                    android:id="@+id/btnMonar"
+                    android:layout_width="35dp"
+                    android:layout_height="33dp"
+                    android:background="#57FFFFFF"
+                    android:textColor="#FFFF79"
+                    android:textSize="22sp"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.121"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.44" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </FrameLayout>
     </HorizontalScrollView>
 
     <ImageButton
         android:id="@+id/returnButton"
-        android:layout_width="60dp"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.045"
+        app:layout_constraintHorizontal_bias="0.044"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.023"
+        app:layout_constraintVertical_bias="0.014"
         app:srcCompat="@android:drawable/ic_menu_revert" />
 
     <TextView
         android:id="@+id/policypathText"
-        android:layout_width="145dp"
-        android:layout_height="79dp"
+        android:layout_width="147dp"
+        android:layout_height="33dp"
         android:text="Policy path:"
         android:textSize="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -66,8 +883,31 @@
         android:text="Next"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.976" />
+        app:layout_constraintVertical_bias="0.992" />
+
+    <ImageButton
+        android:id="@+id/redoBtn"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.817"
+        app:layout_constraintStart_toEndOf="@+id/policypathText"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_rotate" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Redo"
+        app:layout_constraintEnd_toStartOf="@+id/redoBtn"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/policypathText"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

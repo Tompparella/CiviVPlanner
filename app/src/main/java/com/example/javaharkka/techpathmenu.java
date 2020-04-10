@@ -1,8 +1,10 @@
 package com.example.javaharkka;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,10 +12,13 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class techpathmenu extends AppCompatActivity implements View.OnClickListener {
 
     private Plan plan;
     private TextView counter;
+    private String techName;
 
     private Button pottery,anihusb,archery,bronze,calendar,masonry,mining,sailing,wheel,trapping,writing,construction,
             currency,drama,engineering,horseback,iron,math,optics,philosophy,chivalry,civil,compass,education,guilds
@@ -32,6 +37,7 @@ public class techpathmenu extends AppCompatActivity implements View.OnClickListe
 
         Intent intent = getIntent();
         plan = (Plan) intent.getSerializableExtra("plan");
+        counter.setText(String.valueOf(plan.techOrder.size()));
 
         findButtons();
         setListeners();
@@ -41,10 +47,10 @@ public class techpathmenu extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onClick(View v) {
                 plan.printTechs();
+                Intent resultIntent = new Intent();
+                resultIntent.putExtra("plan", plan);
+                setResult(RESULT_OK, resultIntent);
                 finish();
-                Intent intent = new Intent(techpathmenu.this,techpath.class);
-                intent.putExtra("plan", plan);
-                startActivity(intent);
             }
         });
     }
@@ -53,330 +59,253 @@ public class techpathmenu extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.potteryBtn:
-                System.out.println("Pottery");
-                plan.addTech("Pottery");
+                techName = ("Pottery");
                 break;
             case R.id.anihusbBtn:
-                System.out.println("Animal Husbandry");
-                plan.addTech("Animal Husbandry");
+                techName = ("Animal Husbandry");
                 break;
             case R.id.archeryBtn:
-                System.out.println("Archery");
-                plan.addTech("Archery");
+                techName = ("Archery");
                 break;
             case R.id.bronzeBtn:
-                System.out.println("Bronze Working");
-                plan.addTech("Bronze Working");
+                techName = ("Bronze Working");
                 break;
             case R.id.calenBtn:
-                System.out.println("Calendar");
-                plan.addTech("Calendar");
+                techName = ("Calendar");
                 break;
             case R.id.masonBtn:
-                System.out.println("Masonry");
-                plan.addTech("Masonry");
+                techName = ("Masonry");
                 break;
             case R.id.miningBtn:
-                System.out.println("Mining");
-                plan.addTech("Mining");
+                techName = ("Mining");
                 break;
             case R.id.sailBtn:
-                System.out.println("Sailing");
-                plan.addTech("Sailing");
+                techName = ("Sailing");
                 break;
             case R.id.wheelBtn:
-                System.out.println("The Wheel");
-                plan.addTech("The Wheel");
+                techName = ("The Wheel");
                 break;
             case R.id.trapBtn:
-                System.out.println("Trapping");
-                plan.addTech("Trapping");
+                techName = ("Trapping");
                 break;
             case R.id.writingBtn:
-                System.out.println("Writing");
-                plan.addTech("Writing");
+                techName = ("Writing");
                 break;
             case R.id.constBtn:
-                System.out.println("Construction");
-                plan.addTech("Construction");
+                techName = ("Construction");
                 break;
             case R.id.currencyBtn:
-                System.out.println("Currency");
-                plan.addTech("Currency");
+                techName = ("Currency");
                 break;
             case R.id.dramaBtn:
-                System.out.println("Drama and poetry");
-                plan.addTech("Drama and poetry");
+                techName = ("Drama and poetry");
                 break;
             case R.id.engiBtn:
-                System.out.println("Engineering");
-                plan.addTech("Engineering");
+                techName = ("Engineering");
                 break;
             case R.id.horseBtn:
-                System.out.println("Horseback riding");
-                plan.addTech("Horseback riding");
+                techName = ("Horseback riding");
                 break;
             case R.id.ironBtn:
-                System.out.println("Iron working");
-                plan.addTech("Iron working");
+                techName = ("Iron working");
                 break;
             case R.id.mathBtn:
-                System.out.println("Mathematics");
-                plan.addTech("Mathematics");
+                techName = ("Mathematics");
                 break;
             case R.id.opticBtn:
-                System.out.println("Optics");
-                plan.addTech("Optics");
+                techName = ("Optics");
                 break;
             case R.id.philoBtn:
-                System.out.println("Philosophy");
-                plan.addTech("Philosophy");
+                techName = ("Philosophy");
                 break;
             case R.id.chivBtn:
-                System.out.println("Chivalry");
-                plan.addTech("Chivalry");
+                techName = ("Chivalry");
                 break;
             case R.id.civilBtn:
-                System.out.println("Civil service");
-                plan.addTech("Civil service");
+                techName = ("Civil service");
                 break;
             case R.id.compassBtn:
-                System.out.println("Compass");
-                plan.addTech("Compass");
+                techName = ("Compass");
                 break;
             case R.id.eduBtn:
-                System.out.println("Education");
-                plan.addTech("Education");
+                techName = ("Education");
                 break;
             case R.id.guildBtn:
-                System.out.println("Guilds");
-                plan.addTech("Guilds");
+                techName = ("Guilds");
                 break;
             case R.id.machiBtn:
-                System.out.println("Machinery");
-                plan.addTech("Machinery");
+                techName = ("Machinery");
                 break;
             case R.id.metalBtn:
-                System.out.println("Metal casting");
-                plan.addTech("Metal casting");
+                techName = ("Metal casting");
                 break;
             case R.id.physicsBtn:
-                System.out.println("Physics");
-                plan.addTech("Physics");
+                techName = ("Physics");
                 break;
             case R.id.steelBtn:
-                System.out.println("Steel");
-                plan.addTech("Steel");
+                techName = ("Steel");
                 break;
             case R.id.theoBtn:
-                System.out.println("Theology");
-                plan.addTech("Theology");
+                techName = ("Theology");
                 break;
             case R.id.acousticBtn:
-                System.out.println("Acoustics");
-                plan.addTech("Acoustics");
+                techName = ("Acoustics");
                 break;
             case R.id.architectBtn:
-                System.out.println("Architecture");
-                plan.addTech("Architecture");
+                techName = ("Architecture");
                 break;
             case R.id.astroBtn:
-                System.out.println("Astronomy");
-                plan.addTech("Astronomy");
+                techName = ("Astronomy");
                 break;
             case R.id.bankBtn:
-                System.out.println("Banking");
-                plan.addTech("Banking");
+                techName = ("Banking");
                 break;
             case R.id.chemiBtn:
-                System.out.println("Chemistry");
-                plan.addTech("Chemistry");
+                techName = ("Chemistry");
                 break;
             case R.id.economyBtn:
-                System.out.println("Economics");
-                plan.addTech("Economics");
+                techName = ("Economics");
                 break;
             case R.id.gunBtn:
-                System.out.println("Gunpowder");
-                plan.addTech("Gunpowder");
+                techName = ("Gunpowder");
                 break;
             case R.id.metallurgyBtn:
-                System.out.println("Metallurgy");
-                plan.addTech("Metallurgy");
+                techName = ("Metallurgy");
                 break;
             case R.id.naviBtn:
-                System.out.println("Navigation");
-                plan.addTech("Navigation");
+                techName = ("Navigation");
                 break;
             case R.id.printBtn:
-                System.out.println("Printing press");
-                plan.addTech("Printing press");
+                techName = ("Printing press");
                 break;
             case R.id.archeologyBtn:
-                System.out.println("Archeology");
-                plan.addTech("Archeology");
+                techName = ("Archeology");
                 break;
             case R.id.biologyBtn:
-                System.out.println("Biology");
-                plan.addTech("Biology");
+                techName = ("Biology");
                 break;
             case R.id.dynamiteBtn:
-                System.out.println("Dynamite");
-                plan.addTech("Dynamite");
+                techName = ("Dynamite");
                 break;
             case R.id.electriBtn:
-                System.out.println("Electricity");
-                plan.addTech("Electricity");
+                techName = ("Electricity");
                 break;
             case R.id.fertilizerBtn:
-                System.out.println("Fertilizer");
-                plan.addTech("Fertilizer");
+                techName = ("Fertilizer");
                 break;
             case R.id.industrialBtn:
-                System.out.println("Industialization");
-                plan.addTech("Industialization");
+                techName = ("Industialization");
                 break;
             case R.id.militaryBtn:
-                System.out.println("Military Science");
-                plan.addTech("Military Science");
+                techName = ("Military Science");
                 break;
             case R.id.riflingBtn:
-                System.out.println("Rifling");
-                plan.addTech("Rifling");
+                techName = ("Rifling");
                 break;
             case R.id.scientificBtn:
-                System.out.println("Scientific theory");
-                plan.addTech("Scientific theory");
+                techName = ("Scientific theory");
                 break;
             case R.id.steamBtn:
-                System.out.println("Steam power");
-                plan.addTech("Steam power");
+                techName = ("Steam power");
                 break;
             case R.id.ballisticBtn:
-                System.out.println("Ballistics");
-                plan.addTech("Ballistics");
+                techName = ("Ballistics");
                 break;
             case R.id.combustionBtn:
-                System.out.println("Combustion");
-                plan.addTech("Combustion");
+                techName = ("Combustion");
                 break;
             case R.id.electronicBtn:
-                System.out.println("Electornics");
-                plan.addTech("Electornics");
+                techName = ("Electronics");
                 break;
             case R.id.flightBtn:
-                System.out.println("Flight");
-                plan.addTech("Flight");
+                techName = ("Flight");
                 break;
             case R.id.plasticsBtn:
-                System.out.println("Plastics");
-                plan.addTech("Plastics");
+                techName = ("Plastics");
                 break;
             case R.id.radioBtn:
-                System.out.println("Radio");
-                plan.addTech("Radio");
+                techName = ("Radio");
                 break;
             case R.id.railBtn:
-                System.out.println("Railroad");
-                plan.addTech("Railroad");
+                techName = ("Railroad");
                 break;
             case R.id.refrigBtn:
-                System.out.println("Refrigeration");
-                plan.addTech("Refrigeration");
+                techName = ("Refrigeration");
                 break;
             case R.id.replacableBtn:
-                System.out.println("Replaceable parts");
-                plan.addTech("Replaceable parts");
+                techName = ("Replaceable parts");
                 break;
             case R.id.atomicBtn:
-                System.out.println("Atomic theory");
-                plan.addTech("Atomic theory");
+                techName = ("Atomic theory");
                 break;
             case R.id.combinedBtn:
-                System.out.println("Combined arms");
-                plan.addTech("Combined arms");
+                techName = ("Combined arms");
                 break;
             case R.id.computerBtn:
-                System.out.println("Computers");
-                plan.addTech("Computers");
+                techName = ("Computers");
                 break;
             case R.id.ecologyBtn:
-                System.out.println("Ecology");
-                plan.addTech("Ecology");
+                techName = ("Ecology");
                 break;
             case R.id.nuclearBtn:
-                System.out.println("Nuclear fission");
-                plan.addTech("Nuclear fission");
+                techName = ("Nuclear fission");
                 break;
             case R.id.penicillinBtn:
-                System.out.println("Penicillin");
-                plan.addTech("Penicillin");
+                techName = ("Penicillin");
                 break;
             case R.id.radarBtn:
-                System.out.println("Radar");
-                plan.addTech("Radar");
+                techName = ("Radar");
                 break;
             case R.id.rocketryBtn:
-                System.out.println("Rocketry");
-                plan.addTech("Rocketry");
+                techName = ("Rocketry");
                 break;
             case R.id.advancedBtn:
-                System.out.println("Advanced ballistics");
-                plan.addTech("Advanced ballistics");
+                techName = ("Advanced ballistics");
                 break;
             case R.id.futureBtn:
-                System.out.println("Future tech");
-                plan.addTech("Future tech");
+                techName = ("Future tech");
                 break;
             case R.id.globalBtn:
-                System.out.println("Globalization");
-                plan.addTech("Globalization");
+                techName = ("Globalization");
                 break;
             case R.id.laserBtn:
-                System.out.println("Lasers");
-                plan.addTech("Lasers");
+                techName = ("Lasers");
                 break;
             case R.id.mobileBtn:
-                System.out.println("Mobile tactics");
-                plan.addTech("Mobile tactics");
+                techName = ("Mobile tactics");
                 break;
             case R.id.nanotechBtn:
-                System.out.println("Nanotechnology");
-                plan.addTech("Nanotechnology");
+                techName = ("Nanotechnology");
                 break;
             case R.id.nuclearfusionBtn:
-                System.out.println("Nuclear fusion");
-                plan.addTech("Nuclear fusion");
+                techName = ("Nuclear fusion");
                 break;
             case R.id.particleBtn:
-                System.out.println("Particle physics");
-                plan.addTech("Particle physics");
+                techName = ("Particle physics");
                 break;
             case R.id.roboticBtn:
-                System.out.println("Robotics");
-                plan.addTech("Robotics");
+                techName = ("Robotics");
                 break;
             case R.id.satelliteBtn:
-                System.out.println("Satellites");
-                plan.addTech("Satellites");
+                techName = ("Satellites");
                 break;
             case R.id.stealthBtn:
-                System.out.println("Stealth");
-                plan.addTech("Stealth");
+                techName = ("Stealth");
                 break;
             case R.id.telecomBtn:
-                System.out.println("Telecommunications");
-                plan.addTech("Telecommunications");
+                techName = ("Telecommunications");
                 break;
             case R.id.internetBtn:
-                System.out.println("Internet");
-                plan.addTech("Internet");
+                techName = ("The Internet");
                 break;
         }
-        int count = Integer.parseInt(counter.getText().toString());
-        count++;
-        counter.setText(String.valueOf(count));
-        Toast.makeText(techpathmenu.this, "Added a tech!", Toast.LENGTH_SHORT).show();
+        Button temp = (Button) findViewById(v.getId());
+        EntryItem tech = new EntryItem(techName,plan.techOrder.size() + 1);
+        plan.addTech(tech);
+        counter.setText(String.valueOf(plan.techOrder.size()));
+        Toast.makeText(techpathmenu.this, "Added " + techName, Toast.LENGTH_SHORT).show();
+        temp.setBackgroundColor(Color.parseColor("#5122FF00"));
+        temp.setEnabled(false);
     }
 
     // Function that finds all the buttons in the UI and assigns them references
