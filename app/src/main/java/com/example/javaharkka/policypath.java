@@ -20,6 +20,26 @@ public class policypath extends AppCompatActivity implements View.OnClickListene
             consul, scholas, culdip, mercon, aesthetics, culce, fine, flour, artist, cultur, commerce, wagon, mercar, entre,
             mercant, protect, exploration, mariinf, navtrad, navischo, mernavy, trefle, rationalism, secul, humanism, free,
             sover, scienre;
+    private Button freedomBtn, autocracyBtn,orderBtn;
+
+    private View.OnClickListener listener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()){
+                case R.id.freedomBtn:
+                    plan.ideology = "Freedom";
+                    break;
+                case R.id.autocracyBtn:
+                    plan.ideology = "Autocracy";
+                    break;
+                case R.id.orderBtn:
+                    plan.ideology = "Order";
+                    break;
+            }
+            System.out.println(plan.ideology);
+            openNext();
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,10 +54,14 @@ public class policypath extends AppCompatActivity implements View.OnClickListene
     }
 
     public void openNext() {
-        Intent intent = new Intent(this, description.class);
-        intent.putExtra("plan", plan);
-        finish();
-        startActivity(intent);
+        if(plan.policyOrder.size() < 5){
+            Toast.makeText(this,"Please choose at least 5 policies",Toast.LENGTH_SHORT).show();
+        } else {
+            Intent intent = new Intent(this, description.class);
+            intent.putExtra("plan", plan);
+            finish();
+            startActivity(intent);
+        }
     }
 
     private void buildButtons() {
@@ -67,13 +91,13 @@ public class policypath extends AppCompatActivity implements View.OnClickListene
             }
         });
 
-        Button nextButton = (Button) findViewById(R.id.nextButton);
-        nextButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openNext();
-            }
-        });
+        freedomBtn = (Button) findViewById(R.id.freedomBtn);
+        autocracyBtn = (Button) findViewById(R.id.autocracyBtn);
+        orderBtn = (Button) findViewById(R.id.orderBtn);
+        freedomBtn.setOnClickListener(listener);
+        autocracyBtn.setOnClickListener(listener);
+        orderBtn.setOnClickListener(listener);
+
     }
 
     public void findPolicyButtons() {

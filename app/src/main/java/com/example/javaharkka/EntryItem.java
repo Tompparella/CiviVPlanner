@@ -12,6 +12,9 @@ public class EntryItem implements Serializable {
         mnumber = number;
     }
 
+    public EntryItem() {
+    }
+
     public String getTechName() {
         return mtechName;
     }
@@ -24,9 +27,7 @@ public class EntryItem implements Serializable {
         mtechName = text;
     }
 
-    public void setMtechName(String mtechName) {
-        this.mtechName = mtechName;
-    }
+
 
     public void setMnumber(int mnumber) {
         this.mnumber = mnumber;

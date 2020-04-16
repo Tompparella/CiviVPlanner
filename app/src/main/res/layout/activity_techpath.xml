@@ -30,7 +30,8 @@
         android:layout_marginTop="17dp"
         android:layout_marginEnd="15dp"
         android:layout_marginRight="15dp"
-        android:layout_marginBottom="14dp" />
+        android:layout_marginBottom="14dp"
+        android:background="#FFFFFF" />
 
     <Button
         android:id="@+id/nextButton"
@@ -42,7 +43,9 @@
         android:layout_marginStart="161dp"
         android:layout_marginLeft="161dp"
         android:layout_marginBottom="13dp"
-        android:text="Next" />
+        android:background="#D3FDBA"
+        android:text="Next"
+        android:textColor="#039120" />
 
     <ImageButton
         android:id="@+id/returnButton"
@@ -54,6 +57,7 @@
         android:layout_marginStart="12dp"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
+        android:background="#FDE1C6"
         app:srcCompat="@android:drawable/ic_menu_revert" />
 
 </RelativeLayout>

@@ -38,16 +38,16 @@ public class orientationActivity extends AppCompatActivity implements View.OnCli
         Plan plan = new Plan();
         switch (v.getId()) {
             case R.id.techBtn:
-                plan.setOrientation("tech");
+                plan.setOrientation("Technology");
                 break;
             case R.id.cultBtn:
-                plan.setOrientation("cult");
+                plan.setOrientation("Culture");
                 break;
             case R.id.diploBtn:
-                plan.setOrientation("diplo");
+                plan.setOrientation("Diplomacy");
                 break;
             case R.id.conqBtn:
-                plan.setOrientation("conq");
+                plan.setOrientation("Conquest");
                 break;
         }
         openTech(plan);

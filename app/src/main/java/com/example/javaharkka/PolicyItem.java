@@ -15,6 +15,9 @@ public class PolicyItem implements Serializable {
         type = ptype;
     }
 
+    public PolicyItem() {
+    }
+
     public String getPolicyName() {
         return policyName;
     }

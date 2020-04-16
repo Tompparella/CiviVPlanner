@@ -35,19 +35,35 @@ public class planname extends AppCompatActivity {
         Intent intent = getIntent();
         plan = (Plan) intent.getSerializableExtra("plan");
 
+        try {
+            fbAuth = FirebaseAuth.getInstance();
+            fbData = FirebaseDatabase.getInstance();
+            setCreator();
+        } catch(Exception e){
+            openDialog();
+            Toast.makeText(this, "Couldn't connect to database", Toast.LENGTH_SHORT).show();
+            moveBack();
+
+        }
+
         buildButtons();
         planName = (EditText) findViewById(R.id.planName);
 
     }
     public void submit() {
-        if (planName.getText().toString().length() > 5) {
+        int length = planName.getText().toString().length();
+        if (length > 5 && length < 20) {
             plan.planName = planName.getText().toString();
-            sendPlan();
-            Intent intent = new Intent(planname.this, MainActivity.class);
-            finish();
-            startActivity(intent);
+            try {
+                sendPlan();
+                Intent intent = new Intent(planname.this, MainActivity.class);
+                finish();
+                startActivity(intent);
+            } catch (Exception e){
+                return;
+            }
         } else {
-            Toast.makeText(this, "Name must be at least 5 characters long", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Name must be between 5 to 20 characters long", Toast.LENGTH_SHORT).show();
         }
     }
     private void buildButtons(){
@@ -55,10 +71,7 @@ public class planname extends AppCompatActivity {
         returnButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(planname.this, description.class);
-                intent.putExtra("plan", plan);
-                finish();
-                startActivity(intent);
+                moveBack();
             }
         });
         Button submitButton = (Button) findViewById(R.id.submitButton);
@@ -68,6 +81,7 @@ public class planname extends AppCompatActivity {
                 try{
                     submit();
                 } catch (Exception e){
+                    openDialog();
                     System.out.println(e);
                     return;
                 }
@@ -75,24 +89,6 @@ public class planname extends AppCompatActivity {
         });
     }
     private void sendPlan(){
-        fbAuth = FirebaseAuth.getInstance();
-        fbData = FirebaseDatabase.getInstance();
-        userRef = fbData.getReference("Users").child(fbAuth.getUid());
-        userRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                Users currentuser = dataSnapshot.getValue(Users.class);
-                plan.creator = currentuser.userName;
-                plan.creatorId = fbAuth.getUid();
-                System.out.println(plan.creator);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(planname.this,"Couldn't connect to database. Please check your connection.",Toast.LENGTH_SHORT).show();
-            }
-        });
-
         try {
             dbRef = fbData.getReference().child("Plans");
             dbRef.child(plan.planName).setValue(plan);
@@ -101,5 +97,33 @@ public class planname extends AppCompatActivity {
                     Toast.makeText(planname.this,"Couldn't connect to database. Please check your connection.",Toast.LENGTH_SHORT).show();
                     System.out.println(e);
         }
+    }
+
+    private void setCreator(){
+        userRef = fbData.getReference("Users").child(fbAuth.getUid());
+        userRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Users currentuser = dataSnapshot.getValue(Users.class);
+                plan.creator = currentuser.userName;
+                plan.creatorId = fbAuth.getUid();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(planname.this,"Couldn't connect to database. Please check your connection.",Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    public void openDialog(){
+        DialogBox dialog = new DialogBox();
+        dialog.show(getSupportFragmentManager(), "Example dialog");
+    }
+    public void moveBack(){
+        Intent intent = new Intent(planname.this, description.class);
+        intent.putExtra("plan", plan);
+        finish();
+        startActivity(intent);
     }
 }

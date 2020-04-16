@@ -20,7 +20,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button btnLogout;
+    private Button btnLogout, browseBtn;
     private FirebaseAuth fbAuth;
     private FirebaseDatabase fbData;
     private DatabaseReference dbRef;
@@ -32,6 +32,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         setUIText();
+        browseBtn = (Button) findViewById(R.id.browseBtn);
+        browseBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,BrowsePlans.class);
+                startActivity(intent);
+                finish();
+            }
+        });
         btnLogout = (Button) findViewById(R.id.btnLogout);
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override

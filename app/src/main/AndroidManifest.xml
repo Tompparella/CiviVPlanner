@@ -24,6 +24,7 @@
         <activity android:name=".techpathmenu" />
         <activity android:name=".orientationActivity" />
         <activity android:name=".techpath" />
+        <activity android:name=".BrowsePlans"/>
         <activity android:name=".MainActivity">
         </activity>
     </application>
