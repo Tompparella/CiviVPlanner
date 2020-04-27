@@ -44,6 +44,7 @@ public class techpath extends AppCompatActivity {
         startActivityForResult(intent,1);
     }
     public void openNext(){
+        plan.printTechs();
         if(plan.techOrder.size() < 5){
             Toast.makeText(this, "Add at least 5 technologies before proceeding", Toast.LENGTH_SHORT).show();
         } else {
@@ -100,7 +101,7 @@ public class techpath extends AppCompatActivity {
             recyclerAdapter.notifyItemRemoved(position);
     }
         for(int i=0; i < entryList.size(); i++){
-            entryList.get(i).setMnumber(i+1);
+            entryList.get(i).setNumber(i+1);
             recyclerAdapter.notifyItemChanged(i);
         }
         plan.techOrder = entryList;

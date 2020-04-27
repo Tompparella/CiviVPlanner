@@ -40,11 +40,15 @@ public class BrowsePlans extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_browse_plans);
 
-        fbData = FirebaseDatabase.getInstance();
-        dbRef = fbData.getReference("Plans");
-
+        try {
+            fbData = FirebaseDatabase.getInstance();
+            dbRef = fbData.getReference("Plans");
+        } catch (Exception e){
+            Toast.makeText(this, "Error connecting to database",Toast.LENGTH_SHORT).show();
+            System.out.println(e);
+            finish();
+        }
         getPlans();
-        //TODO Alkioiden lisäys!!
 
         buildButtons();
 
@@ -60,8 +64,8 @@ public class BrowsePlans extends AppCompatActivity {
         recyclerAdapter.setOnItemClickListener(new Adapter_browse.OnItemClickListener() {
             @Override
             public void itemClick(int position) {
-                //TODO Alkion klikkaus!!
-                //changeItem(entryList,position, entryList.get(position).getTechName());
+                Plan entry = entryList.get(position);
+                openPlan(entry);
             }
         });
     }
@@ -101,6 +105,13 @@ public class BrowsePlans extends AppCompatActivity {
                 Toast.makeText(BrowsePlans.this,"Couldn't connect to database. Please check your connection.", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+    private void openPlan(Plan entry){
+        Plan plan = entry;
+        Intent intent = new Intent(this, PlanReview.class);
+        intent.putExtra("entry", entry);
+        finish();
+        startActivity(intent);
     }
 }
 

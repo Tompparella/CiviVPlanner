@@ -31,6 +31,7 @@ public class description extends AppCompatActivity {
     public void openNext(){
         if (dTxt.getText().toString().length() > 20) {
             plan.description = dTxt.getText().toString();
+            plan.printTechs();
             Intent intent = new Intent(description.this, planname.class);
             intent.putExtra("plan", plan);
             finish();

@@ -57,6 +57,7 @@ public class policypath extends AppCompatActivity implements View.OnClickListene
         if(plan.policyOrder.size() < 5){
             Toast.makeText(this,"Please choose at least 5 policies",Toast.LENGTH_SHORT).show();
         } else {
+            plan.printTechs();
             Intent intent = new Intent(this, description.class);
             intent.putExtra("plan", plan);
             finish();

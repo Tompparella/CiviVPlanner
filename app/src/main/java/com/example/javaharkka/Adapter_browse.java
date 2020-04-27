@@ -28,7 +28,7 @@ public class Adapter_browse extends RecyclerView.Adapter<Adapter_browse.ViewHold
     }
 
     public static class ViewHolder_browse extends RecyclerView.ViewHolder {
-        public TextView planView, scoreView;
+        public TextView planView, scoreView, creatorView;
         public ImageView orientationImage;
 
         public ViewHolder_browse(@NonNull View itemView, final OnItemClickListener listener)
@@ -37,6 +37,7 @@ public class Adapter_browse extends RecyclerView.Adapter<Adapter_browse.ViewHold
             planView = itemView.findViewById(R.id.planName);
             scoreView = itemView.findViewById(R.id.scoreTxt);
             orientationImage = itemView.findViewById(R.id.orientationImg);
+            creatorView = itemView.findViewById(R.id.creatorTxt);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -79,6 +80,24 @@ public class Adapter_browse extends RecyclerView.Adapter<Adapter_browse.ViewHold
     public void onBindViewHolder(@NonNull ViewHolder_browse holder, int position) {
         Plan currentItem = mEntryList.get(position);
         holder.planView.setText(currentItem.planName);
+        switch (currentItem.orientation){
+            case "Technology":
+                holder.orientationImage.setImageResource(R.drawable.science_icon);
+                break;
+            case "Culture":
+                holder.orientationImage.setImageResource(R.drawable.culture_icon);
+                break;
+            case "Diplomacy":
+                holder.orientationImage.setImageResource(R.drawable.diplmacy_icon);
+                break;
+            case "Conquest":
+                holder.orientationImage.setImageResource(R.drawable.conquest_icon);
+                break;
+            default:
+                holder.orientationImage.setImageResource(R.drawable.ic_delete);
+                break;
+        }
+        holder.creatorView.setText("By: " + currentItem.creator);
         int score = Math.round(currentItem.score);
         if (score <= 51){
             holder.scoreView.setTextColor(Color.parseColor("#FA6337"));

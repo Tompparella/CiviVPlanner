@@ -30,4 +30,15 @@ public class PolicyItem implements Serializable {
         return type;
     }
 
+    public void setPolicyName(String policyName) {
+        this.policyName = policyName;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
+    }
+
+    public void setType(int type) {
+        this.type = type;
+    }
 }

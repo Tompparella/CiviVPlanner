@@ -9,9 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Register"></activity>
-        <activity
-            android:name=".Login">
+        <activity android:name=".ReviewPath"></activity>
+        <activity android:name=".PlanReview" />
+        <activity android:name=".planReview" />
+        <activity android:name=".Register" />
+        <activity android:name=".Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,9 +26,8 @@
         <activity android:name=".techpathmenu" />
         <activity android:name=".orientationActivity" />
         <activity android:name=".techpath" />
-        <activity android:name=".BrowsePlans"/>
-        <activity android:name=".MainActivity">
-        </activity>
+        <activity android:name=".BrowsePlans" />
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>
