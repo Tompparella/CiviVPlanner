@@ -1,7 +1,9 @@
 package com.example.javaharkka;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -12,8 +14,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 public class PlanReview extends AppCompatActivity {
 
@@ -21,9 +28,10 @@ public class PlanReview extends AppCompatActivity {
     private TextView planName, creator, score, description;
     private ImageView ideologyImg, victoryImg;
     private ImageButton likeBtn, dislikeBtn, returnBtn;
-    private Button techPathBtn, policyPathBtn;
+    private Button techPathBtn, policyPathBtn, deleteBtn;
     private boolean has_voted = false;
 
+    private FirebaseAuth fbAuth;
     private FirebaseDatabase fbData;
     private DatabaseReference dbRef;
 
@@ -33,6 +41,7 @@ public class PlanReview extends AppCompatActivity {
         setContentView(R.layout.activity_review);
 
         try {
+            fbAuth = FirebaseAuth.getInstance();
             fbData = FirebaseDatabase.getInstance();
             dbRef = fbData.getReference("Plans");
             System.out.println("Toimii");
@@ -63,6 +72,7 @@ public class PlanReview extends AppCompatActivity {
         techPathBtn = (Button) findViewById(R.id.techBtn);
         policyPathBtn = (Button) findViewById(R.id.policyBtn);
         returnBtn = (ImageButton) findViewById(R.id.returnBtn);
+        deleteBtn = (Button) findViewById(R.id.deleteBtn);
     }
 
     private void setTextViews(){
@@ -156,9 +166,29 @@ public class PlanReview extends AppCompatActivity {
         returnBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(PlanReview.this, BrowsePlans.class);
                 finish();
-                startActivity(intent);
+            }
+        });
+        deleteBtn.setOnClickListener(new View.OnClickListener() { // Making the delete button show a popup which asks the user to confirm the deletion of the plan.
+            @Override
+            public void onClick(View v) {
+                if (fbAuth.getUid().equals(entry.creatorId)) { // Checking whether the user is the plan's creator.
+                    AlertDialog.Builder builder = new AlertDialog.Builder(PlanReview.this);
+                    builder.setMessage("Are you sure you want to delete this plan?")
+                            .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dbRef.child(entry.planName).setValue(null);
+                                    finish();
+                                    Toast.makeText(PlanReview.this, "Plan deleted", Toast.LENGTH_SHORT).show();
+                                }
+                            })
+                            .setNegativeButton("No", null);
+                    AlertDialog alert = builder.create();
+                    alert.show();
+                } else {
+                    Toast.makeText(PlanReview.this,"Only the plan's creator can delete it.", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
@@ -182,4 +212,42 @@ public class PlanReview extends AppCompatActivity {
         entry.downVote();
         updateScore();
     }
+   /* private void writeUserInfo(String uId, String userName){
+        String text = uId + "," + userName;
+        FileOutputStream fs = null;
+        System.out.println(text);
+        try {
+            fs = openFileOutput(fileName, MODE_PRIVATE);
+            fs.write(text.getBytes());
+            fs.close();
+        } catch (FileNotFoundException e){
+            System.out.println(e);
+            finish();
+        } catch (IOException e){
+            System.out.println(e);
+            finish();
+        }
+    } */
+
+    // A method to check wether the file was created succesfully. Used in debugging, which is why it's commented out.
+
+    /* private void testRead() {
+        String text = "";
+        try {
+            FileInputStream fs = openFileInput(fileName);
+            InputStreamReader isr = new InputStreamReader(fs);
+            BufferedReader br = new BufferedReader(isr);
+            StringBuilder sb = new StringBuilder();
+
+            while((text = br.readLine()) != null){
+                sb.append(text).append("\n");
+            }
+            System.out.println(sb.toString());
+            fs.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+            finish();
+            return;
+        }
+    }   */
 }

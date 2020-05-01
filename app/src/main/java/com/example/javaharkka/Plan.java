@@ -32,6 +32,10 @@ public class Plan implements Serializable {
         }
     }
 
+    public String getOrientation() {
+        return orientation;
+    }
+
     public void printTechs() {
         for (int i = 0; i < techOrder.size(); i++) {
             System.out.println(techOrder.get(i).getTechName());

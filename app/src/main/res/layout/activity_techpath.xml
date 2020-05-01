@@ -16,6 +16,7 @@
         android:layout_marginTop="14dp"
         android:layout_toEndOf="@+id/returnButton"
         android:layout_toRightOf="@+id/returnButton"
+        android:fontFamily="casual"
         android:text="Technology path:"
         android:textSize="24dp" />
 
@@ -43,9 +44,11 @@
         android:layout_marginStart="161dp"
         android:layout_marginLeft="161dp"
         android:layout_marginBottom="13dp"
-        android:background="#D3FDBA"
+        android:background="#FAE09E"
+        android:fontFamily="casual"
         android:text="Next"
-        android:textColor="#039120" />
+        android:textColor="#000000"
+        android:textStyle="bold" />
 
     <ImageButton
         android:id="@+id/returnButton"
@@ -57,7 +60,7 @@
         android:layout_marginStart="12dp"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
-        android:background="#FDE1C6"
+        android:background="#FFFFFF"
         app:srcCompat="@android:drawable/ic_menu_revert" />
 
 </RelativeLayout>

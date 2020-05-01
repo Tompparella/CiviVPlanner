@@ -16,7 +16,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.319" />
+        app:layout_constraintVertical_bias="0.453" />
 
     <EditText
         android:id="@+id/etPassword"
@@ -28,37 +28,43 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etEmail"
-        app:layout_constraintVertical_bias="0.101" />
+        app:layout_constraintVertical_bias="0.169" />
 
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="#FFD797"
+        android:fontFamily="casual"
         android:text="@string/title_activity_login"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etPassword"
-        app:layout_constraintVertical_bias="0.187" />
+        app:layout_constraintVertical_bias="0.168" />
 
     <TextView
         android:id="@+id/txtRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="casual"
         android:text="New user? Register here"
+        android:textAllCaps="false"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.512"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnLogin"
-        app:layout_constraintVertical_bias="0.231" />
+        app:layout_constraintVertical_bias="0.204" />
 
     <TextView
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="casual"
         android:text="E-mail"
         app:layout_constraintBottom_toTopOf="@+id/etEmail"
         app:layout_constraintEnd_toEndOf="parent"
@@ -71,6 +77,7 @@
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="casual"
         android:text="@string/prompt_password"
         app:layout_constraintBottom_toTopOf="@+id/etPassword"
         app:layout_constraintEnd_toEndOf="parent"
@@ -83,12 +90,24 @@
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="casual"
         android:text="Sign in as an existing user:"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/etEmail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        app:layout_constraintVertical_bias="0.148" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="200dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="104dp"
+        android:layout_marginLeft="104dp"
+        android:layout_marginTop="28dp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.625" />
+        app:srcCompat="@drawable/civivplanner" />
 </androidx.constraintlayout.widget.ConstraintLayout>

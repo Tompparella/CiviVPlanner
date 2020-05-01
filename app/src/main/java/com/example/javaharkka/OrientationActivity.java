@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
-public class orientationActivity extends AppCompatActivity implements View.OnClickListener {
+public class OrientationActivity extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +54,7 @@ public class orientationActivity extends AppCompatActivity implements View.OnCli
     }
 
     public void openTech(Plan plan) {
-        Intent intent = new Intent(this, techpath.class);
+        Intent intent = new Intent(this, Techpath.class);
         intent.putExtra("plan", plan);
         finish();
         startActivity(intent);

@@ -4,54 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/techImg"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="94dp"
-        android:layout_marginLeft="94dp"
-        android:layout_marginTop="34dp"
-        app:srcCompat="@drawable/science_icon" />
-
-    <ImageView
-        android:id="@+id/conqImg"
-        android:layout_width="50dp"
-        android:layout_height="56dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="286dp"
-        android:layout_marginLeft="286dp"
-        android:layout_marginTop="24dp"
-        app:srcCompat="@drawable/conquest_icon" />
-
-    <ImageView
-        android:id="@+id/cultImg"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="158dp"
-        android:layout_marginLeft="158dp"
-        android:layout_marginTop="34dp"
-        app:srcCompat="@drawable/culture_icon" />
-
-    <ImageView
-        android:id="@+id/diploImg"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="224dp"
-        android:layout_marginLeft="224dp"
-        android:layout_marginTop="34dp"
-        app:srcCompat="@drawable/diplmacy_icon" />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/base"
         android:layout_width="389dp"
@@ -75,6 +27,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
+        android:background="#FFFFFF"
         app:srcCompat="@android:drawable/ic_menu_revert" />
 
     <TextView
@@ -87,6 +40,59 @@
         android:layout_marginStart="151dp"
         android:layout_marginLeft="151dp"
         android:layout_marginTop="3dp"
+        android:fontFamily="casual"
         android:text="Sort by win-type:" />
+
+    <ImageButton
+        android:id="@+id/diploBtn"
+        android:layout_width="55dp"
+        android:layout_height="47dp"
+        android:layout_below="@+id/textView13"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="91dp"
+        android:layout_marginLeft="91dp"
+        android:layout_marginTop="11dp"
+        android:background="#E8FFFE"
+        app:srcCompat="@drawable/diplmacy_icon" />
+
+    <ImageButton
+        android:id="@+id/conqBtn"
+        android:layout_width="55dp"
+        android:layout_height="47dp"
+        android:layout_below="@+id/textView13"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="156dp"
+        android:layout_marginLeft="156dp"
+        android:layout_marginTop="11dp"
+        android:background="#FAC5B6"
+        app:srcCompat="@drawable/conquest_icon" />
+
+    <ImageButton
+        android:id="@+id/cultBtn"
+        android:layout_width="55dp"
+        android:layout_height="47dp"
+        android:layout_below="@+id/textView13"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="221dp"
+        android:layout_marginLeft="221dp"
+        android:layout_marginTop="11dp"
+        android:background="#FBCDF7"
+        app:srcCompat="@drawable/culture_icon" />
+
+    <ImageButton
+        android:id="@+id/scienceBtn"
+        android:layout_width="55dp"
+        android:layout_height="47dp"
+        android:layout_below="@+id/textView13"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="287dp"
+        android:layout_marginLeft="287dp"
+        android:layout_marginTop="11dp"
+        android:background="#ACD6FF"
+        app:srcCompat="@drawable/science_icon" />
 
 </RelativeLayout>

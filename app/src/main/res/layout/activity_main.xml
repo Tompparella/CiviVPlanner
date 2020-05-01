@@ -6,81 +6,68 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="CiviVPlanner"
-        android:textSize="30dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.321" />
-
     <Button
         android:id="@+id/btnLogout"
         android:layout_width="60sp"
         android:layout_height="60sp"
+        android:background="#6CBA8C00"
+        android:fontFamily="casual"
         android:text="Log\nout"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/Newplan"
-        android:layout_width="155sp"
-        android:layout_height="45sp"
+        android:layout_width="240dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="8dp"
+        android:background="#9CE8CF86"
+        android:fontFamily="casual"
         android:text="New Plan"
         android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/browseBtn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.76" />
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/browseBtn"
-        android:layout_width="155sp"
-        android:layout_height="45sp"
+        android:layout_width="240dp"
+        android:layout_height="60dp"
+        android:background="#9CE8CF86"
+        android:fontFamily="casual"
         android:text="Browse Plans"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/aboutBtn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.516" />
+        app:layout_constraintVertical_bias="0.976" />
 
     <Button
-        android:id="@+id/button4"
-        android:layout_width="155sp"
-        android:layout_height="45sp"
-        android:layout_marginStart="124dp"
-        android:layout_marginLeft="124dp"
-        android:text="Options"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/browseBtn"
-        app:layout_constraintVertical_bias="0.034" />
-
-    <Button
-        android:id="@+id/button5"
-        android:layout_width="155sp"
-        android:layout_height="45sp"
-        android:layout_marginBottom="220dp"
+        android:id="@+id/aboutBtn"
+        android:layout_width="240dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="132dp"
+        android:background="#9CE8CF86"
+        android:fontFamily="casual"
         android:text="About"
         android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.484"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/txtUid"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:fontFamily="casual"
         android:text="Uid:"
         android:textSize="12sp"
         app:layout_constraintEnd_toStartOf="@+id/btnLogout"
@@ -92,11 +79,23 @@
         android:id="@+id/txtCurrentUser"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:fontFamily="casual"
         android:text="Logged in as:"
         android:textSize="12sp"
         app:layout_constraintEnd_toStartOf="@+id/btnLogout"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtUid" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="271dp"
+        android:layout_height="153dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="72dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/civivplanner" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

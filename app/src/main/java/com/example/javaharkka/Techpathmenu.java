@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class techpathmenu extends AppCompatActivity implements View.OnClickListener {
+public class Techpathmenu extends AppCompatActivity implements View.OnClickListener {
 
     private Plan plan;
     private TextView counter;
@@ -303,7 +303,7 @@ public class techpathmenu extends AppCompatActivity implements View.OnClickListe
         EntryItem tech = new EntryItem(techName,plan.techOrder.size() + 1);
         plan.addTech(tech);
         counter.setText(String.valueOf(plan.techOrder.size()));
-        Toast.makeText(techpathmenu.this, "Added " + techName, Toast.LENGTH_SHORT).show();
+        Toast.makeText(Techpathmenu.this, "Added " + techName, Toast.LENGTH_SHORT).show();
         temp.setBackgroundColor(Color.parseColor("#5122FF00"));
         temp.setEnabled(false);
     }

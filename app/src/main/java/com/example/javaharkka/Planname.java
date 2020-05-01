@@ -18,7 +18,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class planname extends AppCompatActivity {
+public class Planname extends AppCompatActivity {
     private EditText planName;
     private Plan plan;
     private FirebaseAuth fbAuth;
@@ -54,10 +54,11 @@ public class planname extends AppCompatActivity {
             plan.planName = planName.getText().toString();
             try {
                 sendPlan();
-                Intent intent = new Intent(planname.this, MainActivity.class);
+                Intent intent = new Intent(Planname.this, MainActivity.class);
                 finish();
                 startActivity(intent);
             } catch (Exception e){
+                System.out.println(e);
                 return;
             }
         } else {
@@ -91,9 +92,9 @@ public class planname extends AppCompatActivity {
         try {
             dbRef = fbData.getReference().child("Plans");
             dbRef.child(plan.planName).setValue(plan);
-            Toast.makeText(planname.this, "Plan submitted!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(Planname.this, "Plan submitted!", Toast.LENGTH_SHORT).show();
         } catch (Exception e){
-                    Toast.makeText(planname.this,"Couldn't connect to database. Please check your connection.",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Planname.this,"Couldn't connect to database. Please check your connection.",Toast.LENGTH_SHORT).show();
                     System.out.println(e);
         }
     }
@@ -110,7 +111,7 @@ public class planname extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(planname.this,"Couldn't connect to database. Please check your connection.",Toast.LENGTH_SHORT).show();
+                Toast.makeText(Planname.this,"Couldn't connect to database. Please check your connection.",Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -120,7 +121,7 @@ public class planname extends AppCompatActivity {
         dialog.show(getSupportFragmentManager(), "Example dialog");
     }
     public void moveBack(){
-        Intent intent = new Intent(planname.this, description.class);
+        Intent intent = new Intent(Planname.this, Description.class);
         intent.putExtra("plan", plan);
         finish();
         startActivity(intent);

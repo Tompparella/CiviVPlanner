@@ -15,7 +15,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class techpath extends AppCompatActivity {
+public class Techpath extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private Adapter recyclerAdapter;
@@ -39,7 +39,7 @@ public class techpath extends AppCompatActivity {
 
     }
     public void openTechmenu(){
-        Intent intent = new Intent(this,techpathmenu.class);
+        Intent intent = new Intent(this,Techpathmenu.class);
         intent.putExtra("plan",plan);
         startActivityForResult(intent,1);
     }
@@ -48,7 +48,7 @@ public class techpath extends AppCompatActivity {
         if(plan.techOrder.size() < 5){
             Toast.makeText(this, "Add at least 5 technologies before proceeding", Toast.LENGTH_SHORT).show();
         } else {
-            Intent intent = new Intent(this, policypath.class);
+            Intent intent = new Intent(this, Policypath.class);
             intent.putExtra("plan", plan);
             finish();
             startActivity(intent);
@@ -114,7 +114,7 @@ public class techpath extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
-                Intent intent = new Intent(techpath.this, orientationActivity.class);
+                Intent intent = new Intent(Techpath.this, OrientationActivity.class);
                 intent.putExtra("plan", plan);
                 startActivity(intent);
             }
@@ -130,37 +130,3 @@ public class techpath extends AppCompatActivity {
     }
 
 }
-
-// Deleted lines of code
-
-
-    /* public void changeItem(int position, String text){
-        entryList.get(position).changeText(text);
-        recyclerAdapter.notifyItemChanged(position);
-    }
-
-    public void addItem(EntryItem item){
-        entryList.add(new EntryItem(item.getTechName(),item.getNumber()));
-    }
-
-    firsttechButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openTechmenu();
-            }
-        });
-          /* public void addButton(int i){
-        if(findViewById(R.id.firsttechButton) != null){
-
-        }
-        LinearLayout base = (LinearLayout) findViewById(R.id.base);
-        newBtn = new Button(this);
-        newBtn.setText(String.valueOf(i+1) + ". " + plan.getTech(i));
-        base.addView(newBtn);
-        newBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openTechmenu();
-            }
-        });
-    } */

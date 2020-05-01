@@ -21,6 +21,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 
@@ -29,7 +31,7 @@ public class BrowsePlans extends AppCompatActivity {
     private Adapter_browse recyclerAdapter;
     private RecyclerView.LayoutManager layoutManager;
     private Plan plan;
-    private ArrayList<Plan> entryList = new ArrayList<>();
+    private ArrayList<Plan> entryList = new ArrayList<>(), tempList;
     private FirebaseDatabase fbData;
     private DatabaseReference dbRef;
     int i = 0;
@@ -77,8 +79,42 @@ public class BrowsePlans extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
-                Intent intent = new Intent(BrowsePlans.this, MainActivity.class);
-                startActivity(intent);
+            }
+        });
+
+        ImageButton diploBtn, conqBtn, cultBtn, scienceBtn;
+
+        diploBtn = (ImageButton) findViewById(R.id.diploBtn);
+        conqBtn = (ImageButton) findViewById(R.id.conqBtn);
+        cultBtn = (ImageButton) findViewById(R.id.cultBtn);
+        scienceBtn = (ImageButton) findViewById(R.id.scienceBtn);
+
+        diploBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sortVictory("Diplomacy");
+                buildRecView();
+            }
+        });
+        conqBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sortVictory("Conquest");
+                buildRecView();
+            }
+        });
+        cultBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sortVictory("Culture");
+                buildRecView();
+            }
+        });
+        scienceBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sortVictory("Technology");
+                buildRecView();
             }
         });
     }
@@ -96,6 +132,8 @@ public class BrowsePlans extends AppCompatActivity {
                     entryList.add(plan);
                     System.out.println(entryList);
                 }
+                sortList();
+                tempList = new ArrayList<>(entryList);
                 buildRecView();
             }
 
@@ -110,8 +148,23 @@ public class BrowsePlans extends AppCompatActivity {
         Plan plan = entry;
         Intent intent = new Intent(this, PlanReview.class);
         intent.putExtra("entry", entry);
-        finish();
         startActivity(intent);
+    }
+    private void sortList(){
+        Collections.sort(entryList, new Comparator<Plan>() {
+            @Override
+            public int compare(Plan o1, Plan o2) {
+                return Float.valueOf(o2.score).compareTo(o1.score);
+            }
+        });
+    }
+    private void sortVictory(String type){
+        entryList = new ArrayList<>(tempList);
+        for (int k=0; k<entryList.size();){
+            if(entryList.get(k).orientation.equals(type) == false){
+                entryList.remove(k);
+            } else { k++; }
+        }
     }
 }
 

@@ -80,7 +80,22 @@ public class Register extends AppCompatActivity {
      if(name.isEmpty() || userpswrd.isEmpty() || useremail.isEmpty()){
          Toast.makeText(this,"Please verify that you entered the info correctly.", Toast.LENGTH_SHORT).show();
      } else {
-         result = true;
+         boolean number = false, capital = false, lower = false;
+         for (int i=0;i<userpswrd.length();i++){
+             char currentChar = userpswrd.charAt(i);
+             if (Character.isLowerCase(currentChar)){
+                 lower = true;
+             } else if (Character.isUpperCase(currentChar)){
+                 capital = true;
+             } else if (Character.isDigit(currentChar)){
+                 number = true;
+             }
+         }
+         if (userpswrd.matches(".*[!#¤%&/()=?*)].*") && lower && capital && number && (userpswrd.length() >= 12)){
+             result = true;
+         } else{
+             Toast.makeText(this,"Make sure that your password follows the given guidelines.", Toast.LENGTH_SHORT).show();
+         }
      }
      return result;
     }

@@ -14,31 +14,33 @@
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/etEmail"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.852" />
+        app:layout_constraintVertical_bias="0.915" />
 
     <TextView
         android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="casual"
         android:text="Register a new user:"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/etUsername"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.653" />
+        app:layout_constraintVertical_bias="0.814" />
 
     <TextView
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="casual"
         android:text="Username"
         app:layout_constraintBottom_toTopOf="@+id/etUsername"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.28"
+        app:layout_constraintHorizontal_bias="0.286"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
@@ -51,19 +53,19 @@
         android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.581" />
+        app:layout_constraintVertical_bias="0.681" />
 
     <TextView
         android:id="@+id/textView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="casual"
         android:text="@string/prompt_password"
         app:layout_constraintBottom_toTopOf="@+id/etPassword"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.278"
+        app:layout_constraintHorizontal_bias="0.284"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etEmail"
         app:layout_constraintVertical_bias="1.0" />
@@ -72,18 +74,21 @@
         android:id="@+id/btnRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="#73F8BA28"
+        android:fontFamily="casual"
         android:text="Register"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.711" />
+        app:layout_constraintVertical_bias="0.839" />
 
     <TextView
         android:id="@+id/txtLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="casual"
         android:text="Already a user? Sign in!"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -97,25 +102,49 @@
         android:id="@+id/textView14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="casual"
         android:text="E-mail"
         app:layout_constraintBottom_toTopOf="@+id/etEmail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.268"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etUsername"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/etEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="44dp"
+        android:layout_marginBottom="28dp"
         android:ems="10"
         android:inputType="textEmailAddress"
         app:layout_constraintBottom_toTopOf="@+id/etPassword"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="200dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="104dp"
+        android:layout_marginLeft="104dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView10"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/civivplanner" />
+
+    <TextView
+        android:id="@+id/pswdguideTxt"
+        android:layout_width="349dp"
+        android:layout_height="34dp"
+        android:text="Password must include 1 number, 1 symbol, 1 big and small letter, and be at least 12 characters long"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnRegister"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etPassword" />
 </androidx.constraintlayout.widget.ConstraintLayout>

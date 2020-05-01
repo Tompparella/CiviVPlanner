@@ -11,6 +11,7 @@
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginTop="4dp"
+        android:background="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.011"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,9 +22,10 @@
         android:id="@+id/planNameTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginLeft="64dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="76dp"
+        android:layout_marginLeft="76dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="casual"
         android:text="PlanName"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,6 +36,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
+        android:fontFamily="casual"
         android:text="Score"
         android:textColor="#1DD500"
         android:textSize="30sp"
@@ -46,8 +49,9 @@
         android:id="@+id/creatorTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginLeft="64dp"
+        android:layout_marginStart="76dp"
+        android:layout_marginLeft="76dp"
+        android:fontFamily="casual"
         android:text="by: Creator"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/planNameTxt" />
@@ -56,19 +60,20 @@
         android:id="@+id/victoryImg"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginStart="132dp"
-        android:layout_marginLeft="132dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="144dp"
+        android:layout_marginLeft="144dp"
+        android:layout_marginTop="40dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/planNameTxt"
         app:srcCompat="@drawable/science_icon" />
 
     <ImageView
         android:id="@+id/idelogyImg"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
-        android:layout_marginEnd="292dp"
-        android:layout_marginRight="292dp"
+        android:layout_width="40dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="276dp"
+        android:layout_marginRight="276dp"
         android:background="#21FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/creatorTxt"
@@ -82,7 +87,9 @@
         android:layout_marginLeft="16dp"
         android:layout_marginBottom="376dp"
         android:background="#BBEEFF"
+        android:fontFamily="casual"
         android:text="TechPath"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -94,7 +101,9 @@
         android:layout_marginRight="16dp"
         android:layout_marginBottom="376dp"
         android:background="#FBD1FF"
+        android:fontFamily="casual"
         android:text="PolicyPath"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -144,5 +153,18 @@
                 android:textSize="18sp" />
         </LinearLayout>
     </ScrollView>
+
+    <Button
+        android:id="@+id/deleteBtn"
+        android:layout_width="69dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="28dp"
+        android:background="#FFCDCD"
+        android:text="Delete Plan"
+        android:textColor="#810000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/returnBtn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

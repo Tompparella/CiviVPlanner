@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-public class policypath extends AppCompatActivity implements View.OnClickListener {
+public class Policypath extends AppCompatActivity implements View.OnClickListener {
 
     private int count = 0, pType;
     private Plan plan;
@@ -58,7 +58,7 @@ public class policypath extends AppCompatActivity implements View.OnClickListene
             Toast.makeText(this,"Please choose at least 5 policies",Toast.LENGTH_SHORT).show();
         } else {
             plan.printTechs();
-            Intent intent = new Intent(this, description.class);
+            Intent intent = new Intent(this, Description.class);
             intent.putExtra("plan", plan);
             finish();
             startActivity(intent);
@@ -72,7 +72,7 @@ public class policypath extends AppCompatActivity implements View.OnClickListene
             @Override
             public void onClick(View v) {
                 plan.policyOrder.clear();
-                Intent intent = new Intent(policypath.this, techpath.class);
+                Intent intent = new Intent(Policypath.this, Techpath.class);
                 intent.putExtra("plan", plan);
                 finish();
                 startActivity(intent);
@@ -84,7 +84,7 @@ public class policypath extends AppCompatActivity implements View.OnClickListene
             @Override
             public void onClick(View v) {
                 plan.policyOrder.clear();
-                Intent intent = new Intent(policypath.this, policypath.class);
+                Intent intent = new Intent(Policypath.this, Policypath.class);
                 intent.putExtra("plan", plan);
                 finish();
                 startActivity(intent);
@@ -441,7 +441,7 @@ public class policypath extends AppCompatActivity implements View.OnClickListene
         temp.setBackgroundColor(Color.parseColor("#5122FF00"));
         PolicyItem item = new PolicyItem(policyName,count,pType);
         plan.addPolicy(item);
-        Toast.makeText(policypath.this, "Added " + policyName, Toast.LENGTH_SHORT).show();
+        Toast.makeText(Policypath.this, "Added " + policyName, Toast.LENGTH_SHORT).show();
         temp.setClickable(false);
     }
 }

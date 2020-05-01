@@ -11,7 +11,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class description extends AppCompatActivity {
+public class Description extends AppCompatActivity {
     private Plan plan;
     private EditText dTxt;
 
@@ -29,15 +29,15 @@ public class description extends AppCompatActivity {
 
     }
     public void openNext(){
-        if (dTxt.getText().toString().length() > 20) {
+        if ((dTxt.getText().toString().length() > 20) || dTxt.getText().toString().length() < 300) {
             plan.description = dTxt.getText().toString();
             plan.printTechs();
-            Intent intent = new Intent(description.this, planname.class);
+            Intent intent = new Intent(Description.this, Planname.class);
             intent.putExtra("plan", plan);
             finish();
             startActivity(intent);
         } else {
-            Toast.makeText(this, "Description must be at least 20 characters long", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Description must be between 20-1000 characters long.", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -54,7 +54,7 @@ public class description extends AppCompatActivity {
         returnButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(description.this, policypath.class);
+                Intent intent = new Intent(Description.this, Policypath.class);
                 intent.putExtra("plan", plan);
                 finish();
                 startActivity(intent);

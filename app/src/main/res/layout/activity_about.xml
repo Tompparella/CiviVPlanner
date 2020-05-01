@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".About">
+
+    <ScrollView
+        android:layout_width="385dp"
+        android:layout_height="580dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginRight="1dp"
+        android:layout_marginBottom="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/returnBtn"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:background="#FFFFFF"
+                app:srcCompat="@android:drawable/ic_menu_revert" />
+
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="match_parent"
+                android:layout_height="114dp"
+                app:srcCompat="@drawable/civivplanner" />
+
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="\n\nCiviVPlanner is a buddy application for the game Civilization V. It enables users to save their technology- and policy paths from previous games and upload them for other players to see and rate. The goal of the app is to make it easy for all players to improve their strategy in the game and take inspiration from others in an easy way.\nThe app is developed by one IT student as a final project for a course in object-oriented programming.\n\nHOW TO USE:\n\n    New Plan:\n\nCreating a new plan is easy. You can start the process by clicking the 'New Plan' button in the main menu. Next, you'll have to define what kind of victory type your plan is best suited for. After choosing, you'll be taken to the Techpath menu. By clicking any entry, you'll be taken to the Tech Tree that you're probably familiar with from the game. By clicking technologies, they'll be added to the plan's technology path in chronological order. After you're done, you can click the 'return' button at the top left corner of the screen. Here you can see the path you created, and delete entries if you so want to by clicking the red cross next to the entry. When you're done, click 'Next'.\n\nNow it's time to determine which policies to go with your plan. The principle is similiar to the previous: just click the entries and you'll see them highlighted with a number, which makes it easy to see the order in which to choose the policies. The last step here is to pick which ideology to pick.\n\nIn the next screen you'll have to write a description of your plan. It's advised to add a bit of information how different starts affect starting techs and other stuff that you think players might find useful. When you're done click 'Next'.\n\nThe last step is choosing a name for your plan. Pretty straightforward, don't you think? After naming your project, click 'Submit'.\n\nAnd there you go! You've created your very own plan! The plan is now submitted to a realtime database, and it'll be available to other users if nothing went wrong. If you got any errors, please check your internet connection before writing me an angry email about it.\n\n    Browse plans:\n\nHere you can browse plans submitted by other players. You can also filter them by victory type. If you find some plan interesting, you can inspect it by clicking on it. Here you'll see all available info of the plan. By clicking 'Techorder' or 'Policyorder' buttons, you'll be taken to a screen where you'll see the plan's technology- or policy paths, respectively. If you liked or disliked the plan, you can also rate it by clicking either on the green or the red thumb." />
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

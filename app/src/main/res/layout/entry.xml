@@ -21,6 +21,7 @@
             android:layout_marginTop="3dp"
             android:layout_toEndOf="@+id/number"
             android:layout_toRightOf="@+id/number"
+            android:fontFamily="casual"
             android:text="Empty"
             android:textColor="@android:color/black"
             android:textSize="30sp"
@@ -36,6 +37,7 @@
             android:layout_marginStart="12dp"
             android:layout_marginLeft="12dp"
             android:layout_marginTop="2dp"
+            android:fontFamily="casual"
             android:text="1."
             android:textSize="24sp" />
 
