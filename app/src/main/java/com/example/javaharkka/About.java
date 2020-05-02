@@ -8,14 +8,14 @@ import android.widget.ImageButton;
 
 public class About extends AppCompatActivity {
 
-    ImageButton returnBtn;
+    private ImageButton returnBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
 
-        returnBtn = (ImageButton) findViewById(R.id.returnBtn);
+        returnBtn = findViewById(R.id.returnBtn);
         returnBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -31,7 +32,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         setButtons();
-        setUIText();
+        try {
+            setUIText();
+        } catch (Exception e){
+            Log.wtf("Database error: ", e);
+        }
     }
 
     // Sets the UI's buttons to their listeners and adds functions when a button is pressed.

@@ -31,7 +31,4 @@ public class EntryItem implements Serializable {
         return number;
     }
 
-    public void changeText(String text) {
-        techName = text;
-    }
 }

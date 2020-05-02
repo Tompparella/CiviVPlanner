@@ -102,7 +102,7 @@ public class Adapter_browse extends RecyclerView.Adapter<Adapter_browse.ViewHold
         if (score <= 51){
             holder.scoreView.setTextColor(Color.parseColor("#FA6337"));
         }
-        holder.scoreView.setText(Integer.toString(score) + "%");
+        holder.scoreView.setText((score) + "%");
     }
 
     @Override

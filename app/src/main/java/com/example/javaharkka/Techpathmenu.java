@@ -1,7 +1,6 @@
 package com.example.javaharkka;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -11,8 +10,6 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import java.util.ArrayList;
 
 public class Techpathmenu extends AppCompatActivity implements View.OnClickListener {
 
@@ -309,7 +306,7 @@ public class Techpathmenu extends AppCompatActivity implements View.OnClickListe
     }
 
     // Function that finds all the buttons in the UI and assigns them references
-    public void findButtons(){
+    private void findButtons(){
         // Finding all the tech buttons from the activity
         pottery = (Button) findViewById(R.id.potteryBtn);
         anihusb = (Button) findViewById(R.id.anihusbBtn);
@@ -396,7 +393,7 @@ public class Techpathmenu extends AppCompatActivity implements View.OnClickListe
     }
 
     // Function that sets listeners to all said buttonss
-    public void setListeners(){
+    private void setListeners(){
         pottery.setOnClickListener(this);
         anihusb.setOnClickListener(this);
         archery.setOnClickListener(this);

@@ -53,7 +53,7 @@ public class Policypath extends AppCompatActivity implements View.OnClickListene
         plan = (Plan) intent.getSerializableExtra("plan");
     }
 
-    public void openNext() {
+    private void openNext() {
         if(plan.policyOrder.size() < 5){
             Toast.makeText(this,"Please choose at least 5 policies",Toast.LENGTH_SHORT).show();
         } else {
@@ -101,7 +101,7 @@ public class Policypath extends AppCompatActivity implements View.OnClickListene
 
     }
 
-    public void findPolicyButtons() {
+    private void findPolicyButtons() {
         tradition = (Button) findViewById(R.id.btnTradition);
         aristo = (Button) findViewById(R.id.btnAristo);
         olig = (Button) findViewById(R.id.btnOlig);
@@ -158,7 +158,7 @@ public class Policypath extends AppCompatActivity implements View.OnClickListene
         scienre = (Button) findViewById(R.id.btnScien);
     }
 
-    public void setListeners() {
+    private void setListeners() {
         tradition.setOnClickListener(this);
         aristo.setOnClickListener(this);
         olig.setOnClickListener(this);

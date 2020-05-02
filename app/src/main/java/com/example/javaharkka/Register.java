@@ -72,8 +72,8 @@ public class Register extends AppCompatActivity {
         userLogin = (TextView) findViewById(R.id.txtLogin);
      }
 
-     private Boolean validate() {
-     Boolean result = false;
+     private boolean validate() {
+     boolean result = false;
      name = userName.getText().toString();
      userpswrd = userPassword.getText().toString();
      useremail = userEmail.getText().toString();
@@ -110,7 +110,7 @@ public class Register extends AppCompatActivity {
             System.out.println("Homma loppuu");
         } catch(Exception e){
             System.out.println("Eei toiimi :(");
-            System.out.println(e);
+            Log.wtf("File IO error: ",e);
         }
     }
 }

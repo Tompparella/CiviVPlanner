@@ -14,10 +14,10 @@ import java.util.Random;
 
 public class Verification extends AppCompatActivity {
 
-    TextView codeTxt;
-    EditText codeEdit;
-    Button submitBtn;
-    String verification_code;
+    private TextView codeTxt;
+    private EditText codeEdit;
+    private Button submitBtn;
+    private String verification_code;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +56,6 @@ public class Verification extends AppCompatActivity {
             int i = (int) (rand.nextFloat() * chars.length());
             sb.append(chars.charAt(i));
         }
-        String randString = sb.toString();
-        return randString;
+        return sb.toString();
     }
 }

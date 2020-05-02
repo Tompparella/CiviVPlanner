@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -48,7 +49,7 @@ public class Planname extends AppCompatActivity {
         planName = (EditText) findViewById(R.id.planName);
 
     }
-    public void submit() {
+    private void submit() {
         int length = planName.getText().toString().length();
         if (length > 5 && length < 20) {
             plan.planName = planName.getText().toString();
@@ -58,8 +59,7 @@ public class Planname extends AppCompatActivity {
                 finish();
                 startActivity(intent);
             } catch (Exception e){
-                System.out.println(e);
-                return;
+                Log.wtf("Database error: ",e);
             }
         } else {
             Toast.makeText(this, "Name must be between 5 to 20 characters long", Toast.LENGTH_SHORT).show();
@@ -81,8 +81,7 @@ public class Planname extends AppCompatActivity {
                     submit();
                 } catch (Exception e){
                     openDialog();
-                    System.out.println(e);
-                    return;
+                    Log.wtf("Database error: ",e);
                 }
             }
         });
@@ -95,7 +94,7 @@ public class Planname extends AppCompatActivity {
             Toast.makeText(Planname.this, "Plan submitted!", Toast.LENGTH_SHORT).show();
         } catch (Exception e){
                     Toast.makeText(Planname.this,"Couldn't connect to database. Please check your connection.",Toast.LENGTH_SHORT).show();
-                    System.out.println(e);
+                    Log.wtf("Database error: ",e);
         }
     }
 
@@ -116,11 +115,11 @@ public class Planname extends AppCompatActivity {
         });
     }
 
-    public void openDialog(){
+    private void openDialog(){
         DialogBox dialog = new DialogBox();
         dialog.show(getSupportFragmentManager(), "Example dialog");
     }
-    public void moveBack(){
+    private void moveBack(){
         Intent intent = new Intent(Planname.this, Description.class);
         intent.putExtra("plan", plan);
         finish();

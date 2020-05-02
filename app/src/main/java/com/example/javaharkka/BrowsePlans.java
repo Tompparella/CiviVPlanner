@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
@@ -13,7 +12,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -24,7 +22,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
-import java.util.List;
 
 public class BrowsePlans extends AppCompatActivity {
     private RecyclerView recyclerView;
@@ -34,7 +31,6 @@ public class BrowsePlans extends AppCompatActivity {
     private ArrayList<Plan> entryList = new ArrayList<>(), tempList;
     private FirebaseDatabase fbData;
     private DatabaseReference dbRef;
-    int i = 0;
 
 
     @Override
@@ -47,7 +43,7 @@ public class BrowsePlans extends AppCompatActivity {
             dbRef = fbData.getReference("Plans");
         } catch (Exception e){
             Toast.makeText(this, "Error connecting to database",Toast.LENGTH_SHORT).show();
-            System.out.println(e);
+            Log.wtf("Database error: ",e);
             finish();
         }
         getPlans();
@@ -143,7 +139,6 @@ public class BrowsePlans extends AppCompatActivity {
         });
     }
     private void openPlan(Plan entry){
-        Plan plan = entry;
         Intent intent = new Intent(this, PlanReview.class);
         intent.putExtra("entry", entry);
         startActivity(intent);
@@ -159,9 +154,11 @@ public class BrowsePlans extends AppCompatActivity {
     private void sortVictory(String type){
         entryList = new ArrayList<>(tempList);
         for (int k=0; k<entryList.size();){
-            if(entryList.get(k).orientation.equals(type) == false){
+            if(entryList.get(k).orientation.equals(type)){
+                k++;
+            } else {
                 entryList.remove(k);
-            } else { k++; }
+            }
         }
     }
 }

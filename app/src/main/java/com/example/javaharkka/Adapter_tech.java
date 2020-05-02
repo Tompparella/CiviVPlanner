@@ -3,7 +3,6 @@ package com.example.javaharkka;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -14,7 +13,6 @@ import java.util.ArrayList;
 public class Adapter_tech extends RecyclerView.Adapter<Adapter_tech.ViewHolder> {
 
     private ArrayList<EntryItem> mEntryList;
-    private ArrayList<PolicyItem> mPolicyList;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public TextView entryView, numView;

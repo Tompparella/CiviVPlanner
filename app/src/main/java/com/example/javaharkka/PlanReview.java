@@ -20,20 +20,15 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.nio.charset.Charset;
-import java.util.ArrayList;
-import java.util.List;
 
 public class PlanReview extends AppCompatActivity {
 
-    Plan entry;
+    private Plan entry;
     private TextView planName, creator, score, description;
     private ImageView ideologyImg, victoryImg;
     private ImageButton likeBtn, dislikeBtn, returnBtn;
@@ -55,7 +50,7 @@ public class PlanReview extends AppCompatActivity {
             System.out.println("Toimii");
         } catch (Exception e){
             Toast.makeText(PlanReview.this,"Error connecting to database", Toast.LENGTH_SHORT).show();
-            System.out.println(e);
+            Log.wtf("Database error: ",e);;
             finish();
         }
 
@@ -85,7 +80,7 @@ public class PlanReview extends AppCompatActivity {
     private void setTextViews(){
         planName.setText(entry.planName);
         creator.setText("By: " + entry.creator);
-        score.setText(String.valueOf((int) entry.score) + "%");
+        score.setText(((int) entry.score) + "%");
         if (entry.score < 51){          //If he plan's score is less than 51, it's color changes from green to red.
             score.setTextColor(Color.parseColor("#FA6337"));
         }
@@ -200,7 +195,7 @@ public class PlanReview extends AppCompatActivity {
         });
     }
     private void updateScore(){
-        score.setText(String.valueOf((int) entry.score) + "%");
+        score.setText(((int) entry.score) + "%");
         if (entry.score < 51){
             score.setTextColor(Color.parseColor("#FA6337"));
         } else {
@@ -226,17 +221,17 @@ public class PlanReview extends AppCompatActivity {
     */
 
     private void writeVoteFile() {
-        FileOutputStream fs = null;
+        FileOutputStream fs;
         String info_to_be_written = (readUserData() + entry.planName + ";");
         try {
             fs = openFileOutput("userInfo.txt", MODE_PRIVATE);
             fs.write(info_to_be_written.getBytes());
             fs.close();
         } catch (FileNotFoundException e) {
-            System.out.println(e);
+            Log.wtf("FileNotFound error: ",e);
             finish();
         } catch (IOException e) {
-            System.out.println(e);
+            Log.wtf("File IO error: ",e);
             finish();
         }
     }
@@ -256,7 +251,7 @@ public class PlanReview extends AppCompatActivity {
 
         } catch (IOException e) {
             Log.wtf("PlanReview", "Error reading file.");
-            System.out.println(e);
+            Log.wtf("File IO error: ",e);
             return "error, error,";
         }
     }
@@ -281,7 +276,7 @@ public class PlanReview extends AppCompatActivity {
 
         } catch (IOException e) {
             Log.wtf("PlanReview", "Error reading file.");
-            System.out.println(e);
+            Log.wtf("File IO error: ",e);
             return false;
         }
     }

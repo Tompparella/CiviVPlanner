@@ -20,9 +20,8 @@ public class ReviewPath extends AppCompatActivity {
     private RecyclerView.LayoutManager layoutManager;
     private ArrayList<PolicyItem> policyList = new ArrayList<>();
     private ArrayList<EntryItem> techList = new ArrayList<>();
-    boolean isTechPath;
+    private boolean isTechPath;
     private ImageButton returnBtn;
-    private Plan plan;
     private TextView pathTxt;
 
     @Override
@@ -33,7 +32,7 @@ public class ReviewPath extends AppCompatActivity {
         Intent intent = getIntent();
         isTechPath = (boolean) intent.getSerializableExtra("bool");
 
-        if (isTechPath == true){
+        if (isTechPath){
             techList = (ArrayList<EntryItem>) intent.getSerializableExtra("techs");
         } else {
             policyList = (ArrayList<PolicyItem>) intent.getSerializableExtra("pols");
@@ -54,7 +53,7 @@ public class ReviewPath extends AppCompatActivity {
         recyclerView = findViewById(R.id.base);
         layoutManager = new LinearLayoutManager(this);
         pathTxt = (TextView) findViewById(R.id.pathTxt);
-        if (isTechPath == true){
+        if (isTechPath){
             techAdapter = new Adapter_tech(techList);
             recyclerView.setLayoutManager(layoutManager);
             recyclerView.setAdapter(techAdapter);

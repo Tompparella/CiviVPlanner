@@ -26,12 +26,6 @@ public class Plan implements Serializable {
         policyOrder.add(item);
     }
 
-    public void printPolicies(){
-        for (int i = 0; i < policyOrder.size(); i++){
-            System.out.println(policyOrder.get(i).getPolicyName());
-        }
-    }
-
     public String getOrientation() {
         return orientation;
     }
@@ -46,20 +40,20 @@ public class Plan implements Serializable {
         return String.valueOf(techOrder.get(i));
     }
 
-    public float downVote(){
+    public void downVote(){
         votes++;
         if(upvotes == 0){
             score = 0;
         } else{
             score = (upvotes/votes)*100;
         }
-        return score;
+        return;
     }
-    public float upVote(){
+    public void upVote(){
         votes++;
         upvotes++;
         score = (upvotes/votes)*100;
-        return score;
+        return;
     }
 
 }

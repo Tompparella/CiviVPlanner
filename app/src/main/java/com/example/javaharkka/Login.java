@@ -131,16 +131,16 @@ public class Login extends AppCompatActivity {
 
     private void writeUserInfo(String uId, String userName){
         String text = uId + "," + userName + ", ,";
-        FileOutputStream fs = null;
+        FileOutputStream fs;
         try {
             fs = openFileOutput(fileName, MODE_PRIVATE);
             fs.write(text.getBytes());
             fs.close();
         } catch (FileNotFoundException e){
-            System.out.println(e);
+            Log.wtf("File error: ",e);
             finish();
         } catch (IOException e){
-            System.out.println(e);
+            Log.wtf("File error: ",e);
             finish();
         } finally {
             testRead();
@@ -150,7 +150,7 @@ public class Login extends AppCompatActivity {
     // A method to check wether the file was created succesfully. Used in debugging, which is why it's commented out.
 
     private void testRead() {
-        String text = "";
+        String text;
         try {
             FileInputStream fs = openFileInput(fileName);
             InputStreamReader isr = new InputStreamReader(fs);
@@ -165,7 +165,6 @@ public class Login extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
             finish();
-            return;
         }
     }
 

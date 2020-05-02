@@ -10,7 +10,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -32,18 +31,17 @@ public class Techpath extends AppCompatActivity {
 
         Intent intent = getIntent();
         plan = (Plan) intent.getSerializableExtra("plan");
-        System.out.println(plan.orientation);
 
         buildRecView();
         buildButtons();
 
     }
-    public void openTechmenu(){
+    private void openTechmenu(){
         Intent intent = new Intent(this,Techpathmenu.class);
         intent.putExtra("plan",plan);
         startActivityForResult(intent,1);
     }
-    public void openNext(){
+    private void openNext(){
         plan.printTechs();
         if(plan.techOrder.size() < 5){
             Toast.makeText(this, "Add at least 5 technologies before proceeding", Toast.LENGTH_SHORT).show();
@@ -86,7 +84,7 @@ public class Techpath extends AppCompatActivity {
         });
     }
 
-    public void removeItem(int position){
+    private void removeItem(int position){
         if (position == 0){
             entryList.remove(position);
             recyclerAdapter.notifyItemRemoved(position);

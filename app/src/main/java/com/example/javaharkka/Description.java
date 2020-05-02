@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.TextView;
 import android.widget.Toast;
 
 public class Description extends AppCompatActivity {
@@ -28,7 +27,7 @@ public class Description extends AppCompatActivity {
         dTxt = (EditText) findViewById(R.id.descriptionTxt);
 
     }
-    public void openNext(){
+    private void openNext(){
         if ((dTxt.getText().toString().length() > 20) || dTxt.getText().toString().length() < 300) {
             plan.description = dTxt.getText().toString();
             plan.printTechs();
