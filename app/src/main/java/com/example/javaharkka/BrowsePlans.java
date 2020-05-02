@@ -130,7 +130,6 @@ public class BrowsePlans extends AppCompatActivity {
                     DataSnapshot item = items.next();
                     plan = item.getValue(Plan.class);
                     entryList.add(plan);
-                    System.out.println(entryList);
                 }
                 sortList();
                 tempList = new ArrayList<>(entryList);
@@ -140,7 +139,6 @@ public class BrowsePlans extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 Log.w("Failed to read value.", databaseError.toException());
-                Toast.makeText(BrowsePlans.this,"Couldn't connect to database. Please check your connection.", Toast.LENGTH_SHORT).show();
             }
         });
     }

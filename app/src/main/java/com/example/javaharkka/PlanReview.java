@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -18,9 +19,17 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.Charset;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PlanReview extends AppCompatActivity {
 
@@ -29,7 +38,6 @@ public class PlanReview extends AppCompatActivity {
     private ImageView ideologyImg, victoryImg;
     private ImageButton likeBtn, dislikeBtn, returnBtn;
     private Button techPathBtn, policyPathBtn, deleteBtn;
-    private boolean has_voted = false;
 
     private FirebaseAuth fbAuth;
     private FirebaseDatabase fbData;
@@ -58,7 +66,6 @@ public class PlanReview extends AppCompatActivity {
         setImages();
         setListeners();
 
-        System.out.println(entry.techOrder);
     }
     private void findViews(){
         planName = (TextView) findViewById(R.id.planNameTxt);
@@ -79,13 +86,13 @@ public class PlanReview extends AppCompatActivity {
         planName.setText(entry.planName);
         creator.setText("By: " + entry.creator);
         score.setText(String.valueOf((int) entry.score) + "%");
-        if (entry.score < 51){
+        if (entry.score < 51){          //If he plan's score is less than 51, it's color changes from green to red.
             score.setTextColor(Color.parseColor("#FA6337"));
         }
         description.setText(entry.description);
     }
 
-    private void setImages(){
+    private void setImages(){   // Sets the plan's victory type- and ideology images accordingly
         switch (entry.orientation){
             case "Culture":
                 victoryImg.setImageResource(R.drawable.culture_icon);
@@ -123,9 +130,9 @@ public class PlanReview extends AppCompatActivity {
         likeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (has_voted == false) {
+                if (checkVoted(entry.planName)) {
                     like();
-                    has_voted = true;
+                    writeVoteFile();
                     Toast.makeText(PlanReview.this,"Vote saved!", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(PlanReview.this,"You've already voted this plan", Toast.LENGTH_SHORT).show();
@@ -135,9 +142,9 @@ public class PlanReview extends AppCompatActivity {
         dislikeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (has_voted == false) {
+                if (checkVoted(entry.planName)) {
                     dislike();
-                    has_voted = true;
+                    writeVoteFile();
                     Toast.makeText(PlanReview.this,"Vote saved!", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(PlanReview.this,"You've already voted this plan", Toast.LENGTH_SHORT).show();
@@ -212,24 +219,75 @@ public class PlanReview extends AppCompatActivity {
         entry.downVote();
         updateScore();
     }
-   /* private void writeUserInfo(String uId, String userName){
-        String text = uId + "," + userName;
+
+    /*
+    These next two methods are used to read and write to our previously created userInfo file.
+    The third is used in checking whether the user has already voted the plan during the ongoing session.
+    */
+
+    private void writeVoteFile() {
         FileOutputStream fs = null;
-        System.out.println(text);
+        String info_to_be_written = (readUserData() + entry.planName + ";");
         try {
-            fs = openFileOutput(fileName, MODE_PRIVATE);
-            fs.write(text.getBytes());
+            fs = openFileOutput("userInfo.txt", MODE_PRIVATE);
+            fs.write(info_to_be_written.getBytes());
             fs.close();
-        } catch (FileNotFoundException e){
+        } catch (FileNotFoundException e) {
             System.out.println(e);
             finish();
-        } catch (IOException e){
+        } catch (IOException e) {
             System.out.println(e);
             finish();
         }
-    } */
+    }
+    private String readUserData(){
+        try {
+            FileInputStream fs = openFileInput("userInfo.txt");
+            InputStreamReader isr = new InputStreamReader(fs);
+            BufferedReader br = new BufferedReader(isr);
+            String line = br.readLine();
+            String[] info = line.split(",");
+            String uId = info[0];
+            String userName = info[1];
+            String voted = info[2];
+            String userData = (uId + "," + userName + "," + voted);
+            fs.close();
+            return userData;
 
-    // A method to check wether the file was created succesfully. Used in debugging, which is why it's commented out.
+        } catch (IOException e) {
+            Log.wtf("PlanReview", "Error reading file.");
+            System.out.println(e);
+            return "error, error,";
+        }
+    }
+    private boolean checkVoted(String plan){
+        String[] voted_plans;
+        boolean vote = true;
+        try {
+            FileInputStream fs = openFileInput("userInfo.txt");
+            InputStreamReader isr = new InputStreamReader(fs);
+            BufferedReader br = new BufferedReader(isr);
+            String line = br.readLine();
+            System.out.println(line);
+            String[] info = line.split(",");
+            voted_plans = info[2].split(";");
+            for (int i=0;i<voted_plans.length;i++){
+                if (voted_plans[i].trim().equals(plan.trim())){
+                    vote = false;
+                }
+            }
+            fs.close();
+            return vote;
+
+        } catch (IOException e) {
+            Log.wtf("PlanReview", "Error reading file.");
+            System.out.println(e);
+            return false;
+        }
+    }
+
+
+    // A method to check whether the file was created successfully. Used in debugging, which is why it's commented out.
 
     /* private void testRead() {
         String text = "";
@@ -249,5 +307,18 @@ public class PlanReview extends AppCompatActivity {
             finish();
             return;
         }
-    }   */
+    }       private void writeVoted(String planName){
+                FileOutputStream fs = null;
+                try {
+                    fs = openFileOutput(fileName, MODE_PRIVATE);
+                    fs.write(text.getBytes());
+                    fs.close();
+                } catch (FileNotFoundException e){
+                    System.out.println(e);
+                    finish();
+                } catch (IOException e){
+                    System.out.println(e);
+                    finish();
+        }
+    }*/
 }

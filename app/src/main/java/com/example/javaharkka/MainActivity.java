@@ -17,13 +17,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-
 public class MainActivity extends AppCompatActivity {
 
     private Button btnLogout, browseBtn, aboutBtn;
@@ -31,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseDatabase fbData;
     private DatabaseReference dbRef;
     private TextView txtCurrentUser, txtUid;
-    private String fileName = "userInfo.txt";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         browseBtn = (Button) findViewById(R.id.browseBtn);
         browseBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) { // Opens the plan browse activity.
+            public void onClick(View v) { // Opens the plan browser activity.
                 Intent intent = new Intent(MainActivity.this,BrowsePlans.class);
                 startActivity(intent);
             }
@@ -97,7 +89,6 @@ public class MainActivity extends AppCompatActivity {
                 currentuser = dataSnapshot.getValue(Users.class);
                 currentUserName = currentuser.getUserName();
                 txtCurrentUser.setText(" Logged in as " + currentUserName);
-                writeUserInfo(fbAuth.getUid(),currentUserName);            // Saves user data to a local file.
             }
 
             @Override
@@ -108,50 +99,5 @@ public class MainActivity extends AppCompatActivity {
         txtUid = (TextView) findViewById(R.id.txtUid);
         txtUid.setText(" UserID: " + fbAuth.getUid());
     }
-
-
-    /*  This next method writes the current user's information to a local file in csv format.
-        The file format is "Username, UserId, Voted plans (to be added later)".
-        It's not that necessary for the program's functioning, but it's a requirement
-        to pass this as my final project, so it had to be added.     */
-
-    private void writeUserInfo(String uId, String userName){
-        String text = uId + "," + userName;
-        FileOutputStream fs = null;
-        System.out.println(text);
-        try {
-            fs = openFileOutput(fileName, MODE_PRIVATE);
-            fs.write(text.getBytes());
-            fs.close();
-        } catch (FileNotFoundException e){
-            System.out.println(e);
-            finish();
-        } catch (IOException e){
-            System.out.println(e);
-            finish();
-        }
-    }
-
-    // A method to check wether the file was created succesfully. Used in debugging, which is why it's commented out.
-
-    /* private void testRead() {
-        String text = "";
-        try {
-            FileInputStream fs = openFileInput(fileName);
-            InputStreamReader isr = new InputStreamReader(fs);
-            BufferedReader br = new BufferedReader(isr);
-            StringBuilder sb = new StringBuilder();
-
-            while((text = br.readLine()) != null){
-                sb.append(text).append("\n");
-            }
-            System.out.println(sb.toString());
-            fs.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-            finish();
-            return;
-        }
-    }   */
 }
 
