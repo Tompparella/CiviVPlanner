@@ -36,23 +36,27 @@ public class Verification extends AppCompatActivity {
         submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (verification_code.equals(codeEdit.getText().toString())){
-                    Toast.makeText(Verification.this, "Correct authentication code!", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(Verification.this,MainActivity.class);
-                    finish();
-                    startActivity(intent);
-                } else {
-                    Toast.makeText(Verification.this, "Incorrect authentication code.", Toast.LENGTH_SHORT).show();
-                }
+                verify();
             }
         });
 
     }
+    private void verify(){
+        if (verification_code.equals(codeEdit.getText().toString())){
+            Toast.makeText(Verification.this, "Correct authentication code!", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(Verification.this,MainActivity.class);
+            finish();
+            startActivity(intent);
+        } else {
+            Toast.makeText(Verification.this, "Incorrect authentication code.", Toast.LENGTH_SHORT).show();
+        }
+    }
+
     private String getRandString(){
         String chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
         StringBuilder sb = new StringBuilder();
         Random rand = new Random();
-        while (sb.length() < 8){
+        while (sb.length() < 6){
             int i = (int) (rand.nextFloat() * chars.length());
             sb.append(chars.charAt(i));
         }

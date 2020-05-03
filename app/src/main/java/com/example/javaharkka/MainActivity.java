@@ -46,37 +46,53 @@ public class MainActivity extends AppCompatActivity {
         browseBtn = (Button) findViewById(R.id.browseBtn);
         browseBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) { // Opens the plan browser activity.
-                Intent intent = new Intent(MainActivity.this,BrowsePlans.class);
-                startActivity(intent);
+            public void onClick(View v) {
+                openBrowse();
             }
         });
         btnLogout = (Button) findViewById(R.id.btnLogout);
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Logged out", Toast.LENGTH_SHORT).show();
-                fbAuth.signOut();
-                finish();
-                startActivity(new Intent(MainActivity.this,Login.class));
+                logout();
             }
         });
         Button orientation_button = (Button) findViewById(R.id.Newplan);
-        orientation_button.setOnClickListener(new View.OnClickListener() { // Begins the plan creation process and takes the user to the orientation activity.
+        orientation_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,OrientationActivity.class);
-                startActivity(intent);
+                openNewPlan();
             }
         });
         aboutBtn = (Button) findViewById(R.id.aboutBtn);
         aboutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) { // Opens the in-a-nutshell-documentation of the program.
-                Intent intent = new Intent(MainActivity.this, About.class);
-                startActivity(intent);
+            public void onClick(View v) {
+                openAbout();
             }
         });
+    }
+    private void openAbout(){
+        Intent intent = new Intent(MainActivity.this, About.class);
+        startActivity(intent);
+    }
+    private void openNewPlan(){
+        Intent intent = new Intent(MainActivity.this,OrientationActivity.class);
+        startActivity(intent);
+    }
+    private void openBrowse(){
+        Intent intent = new Intent(MainActivity.this,BrowsePlans.class);
+        startActivity(intent);
+    }
+    private void logout(){
+        try {
+            fbAuth.signOut();
+            finish();
+            Toast.makeText(MainActivity.this, "Logged out", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(MainActivity.this, Login.class));
+        } catch (Exception e){
+            Log.wtf("Database error:", e);
+        }
     }
 
     // This method loads the user's data from database and sets the activity's views accordingly.
@@ -90,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {  // Reads data from the reference.
                 Users currentuser;
-                String currentUserName, uId;
+                String currentUserName;
                 currentuser = dataSnapshot.getValue(Users.class);
                 currentUserName = currentuser.getUserName();
                 txtCurrentUser.setText(" Logged in as " + currentUserName);

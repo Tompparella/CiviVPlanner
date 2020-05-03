@@ -28,6 +28,7 @@ public class Register extends AppCompatActivity {
     private String name, userpswrd, useremail;
     private FirebaseDatabase fbData;
     private DatabaseReference dbRef;
+    private Users userData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,20 +41,7 @@ public class Register extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (validate()){
-                    String user_mail = userEmail.getText().toString().trim();
-                    String user_password = userPassword.getText().toString().trim();
-                    fbAuth.createUserWithEmailAndPassword(user_mail,user_password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if(task.isSuccessful()){
-                                addUser();
-                                Toast.makeText(Register.this, "Registration succesful!",Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(Register.this, Login.class));
-                            } else {
-                                Toast.makeText(Register.this, "Registration failed",Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    });
+                    register();
                 }
             }
         });
@@ -70,6 +58,22 @@ public class Register extends AppCompatActivity {
         userEmail = (EditText) findViewById(R.id.etEmail);
         regBtn = (Button) findViewById(R.id.btnRegister);
         userLogin = (TextView) findViewById(R.id.txtLogin);
+     }
+     private void register(){
+         String user_mail = userEmail.getText().toString().trim();
+         String user_password = userPassword.getText().toString().trim();
+         fbAuth.createUserWithEmailAndPassword(user_mail,user_password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+             @Override
+             public void onComplete(@NonNull Task<AuthResult> task) {
+                 if(task.isSuccessful()){
+                     addUser();
+                     Toast.makeText(Register.this, "Registration succesful!",Toast.LENGTH_SHORT).show();
+                     startActivity(new Intent(Register.this, Login.class));
+                 } else {
+                     Toast.makeText(Register.this, "Registration failed",Toast.LENGTH_SHORT).show();
+                 }
+             }
+         });
      }
 
      private boolean validate() {
@@ -100,16 +104,15 @@ public class Register extends AppCompatActivity {
      return result;
     }
 
-    private void addUser(){ // Tässä funktiossa rekisteröityvän käyttäjän tiedot lisätään tietokannan alkion "Users" lapsiksi.
+    private void addUser(){     // In this method, the new user is added to the database 'Users' node's children.
         fbData = FirebaseDatabase.getInstance();
         dbRef = fbData.getReference().child("Users");
-        Users userData = new Users(name, useremail);
+        userData = new Users(name, useremail);
         try{
             System.out.println("Homma alkaa");
             dbRef.child(fbAuth.getUid()).setValue(userData);
             System.out.println("Homma loppuu");
         } catch(Exception e){
-            System.out.println("Eei toiimi :(");
             Log.wtf("File IO error: ",e);
         }
     }

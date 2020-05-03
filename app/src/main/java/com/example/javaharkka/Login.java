@@ -56,7 +56,7 @@ public class Login extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                validate();
+                login();
             }
         });
 
@@ -82,12 +82,15 @@ public class Login extends AppCompatActivity {
         userRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Login.this, Register.class));
+                openRegisterActivity();
             }
         });
     }
+    private void openRegisterActivity(){
+        startActivity(new Intent(Login.this, Register.class));
+    }
 
-    private void validate(){    // Checks whether the user's credentials are correct.
+    private void login(){    // Checks whether the user's credentials are correct.
         String email, password;
         email = userEmail.getText().toString();
         password = userPswrd.getText().toString();
@@ -142,14 +145,14 @@ public class Login extends AppCompatActivity {
         } catch (IOException e){
             Log.wtf("File error: ",e);
             finish();
-        } finally {
+        }/* finally {
             testRead();
-        }
+        }*/
     }
 
-    // A method to check wether the file was created succesfully. Used in debugging, which is why it's commented out.
+    // A method to check whether the file was created successfully. Used in debugging, which is why it's commented out.
 
-    private void testRead() {
+    /* private void testRead() {
         String text;
         try {
             FileInputStream fs = openFileInput(fileName);
@@ -166,6 +169,6 @@ public class Login extends AppCompatActivity {
             e.printStackTrace();
             finish();
         }
-    }
+    } */
 
 }

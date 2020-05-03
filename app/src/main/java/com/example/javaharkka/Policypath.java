@@ -21,6 +21,7 @@ public class Policypath extends AppCompatActivity implements View.OnClickListene
             mercant, protect, exploration, mariinf, navtrad, navischo, mernavy, trefle, rationalism, secul, humanism, free,
             sover, scienre;
     private Button freedomBtn, autocracyBtn,orderBtn;
+    private PolicyItem item;
 
     private View.OnClickListener listener = new View.OnClickListener() {
         @Override
@@ -439,9 +440,14 @@ public class Policypath extends AppCompatActivity implements View.OnClickListene
         Button temp = (Button) findViewById(v.getId());
         temp.setText(String.valueOf(count));
         temp.setBackgroundColor(Color.parseColor("#5122FF00"));
-        PolicyItem item = new PolicyItem(policyName,count,pType);
+        item = new PolicyItem(policyName,count,pType);
+
+        addPolicy(item);
+
+        temp.setClickable(false);
+    }
+    private void addPolicy(PolicyItem item){
         plan.addPolicy(item);
         Toast.makeText(Policypath.this, "Added " + policyName, Toast.LENGTH_SHORT).show();
-        temp.setClickable(false);
     }
 }

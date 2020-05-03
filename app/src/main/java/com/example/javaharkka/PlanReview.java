@@ -149,20 +149,13 @@ public class PlanReview extends AppCompatActivity {
         techPathBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(PlanReview.this, ReviewPath.class);
-                intent.putExtra("techs", entry.techOrder);
-                intent.putExtra("bool", true);
-                startActivity(intent);
-
+                openTechPath();
             }
         });
         policyPathBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(PlanReview.this, ReviewPath.class);
-                intent.putExtra("pols", entry.policyOrder);
-                intent.putExtra("bool", false);
-                startActivity(intent);
+                openPolicyPath();
             }
         });
         returnBtn.setOnClickListener(new View.OnClickListener() {
@@ -204,6 +197,19 @@ public class PlanReview extends AppCompatActivity {
         dbRef.child(entry.planName).child("score").setValue(entry.score);
         dbRef.child(entry.planName).child("votes").setValue(entry.votes);
         dbRef.child(entry.planName).child("upvotes").setValue(entry.upvotes);
+    }
+
+    private void openPolicyPath(){
+        Intent intent = new Intent(PlanReview.this, ReviewPath.class);
+        intent.putExtra("pols", entry.policyOrder);
+        intent.putExtra("bool", false);
+        startActivity(intent);
+    }
+    private void openTechPath(){
+        Intent intent = new Intent(PlanReview.this, ReviewPath.class);
+        intent.putExtra("techs", entry.techOrder);
+        intent.putExtra("bool", true);
+        startActivity(intent);
     }
 
     private void like(){

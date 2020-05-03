@@ -16,6 +16,7 @@ public class Techpathmenu extends AppCompatActivity implements View.OnClickListe
     private Plan plan;
     private TextView counter;
     private String techName;
+    private EntryItem tech;
 
     private Button pottery,anihusb,archery,bronze,calendar,masonry,mining,sailing,wheel,trapping,writing,construction,
             currency,drama,engineering,horseback,iron,math,optics,philosophy,chivalry,civil,compass,education,guilds
@@ -297,10 +298,10 @@ public class Techpathmenu extends AppCompatActivity implements View.OnClickListe
                 break;
         }
         Button temp = (Button) findViewById(v.getId());
-        EntryItem tech = new EntryItem(techName,plan.techOrder.size() + 1);
-        plan.addTech(tech);
-        counter.setText(String.valueOf(plan.techOrder.size()));
-        Toast.makeText(Techpathmenu.this, "Added " + techName, Toast.LENGTH_SHORT).show();
+        tech = new EntryItem(techName,plan.techOrder.size() + 1);
+
+        addTech(tech);
+
         temp.setBackgroundColor(Color.parseColor("#5122FF00"));
         temp.setEnabled(false);
     }
@@ -392,7 +393,7 @@ public class Techpathmenu extends AppCompatActivity implements View.OnClickListe
 
     }
 
-    // Function that sets listeners to all said buttonss
+    // Function that sets listeners to all said buttons
     private void setListeners(){
         pottery.setOnClickListener(this);
         anihusb.setOnClickListener(this);
@@ -476,4 +477,9 @@ public class Techpathmenu extends AppCompatActivity implements View.OnClickListe
         internet.setOnClickListener(this);
     }
 
+    private void addTech(EntryItem tech){
+        plan.addTech(tech);
+        counter.setText(String.valueOf(plan.techOrder.size()));
+        Toast.makeText(Techpathmenu.this, "Added " + techName, Toast.LENGTH_SHORT).show();
+    }
 }
