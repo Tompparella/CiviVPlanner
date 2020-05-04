@@ -1,3 +1,10 @@
+/*
+CiviVPlanner; Android Studio; Tommi Kunnari; Adapter.class;
+
+This adapter manages adding new entry.xml cardviews containing
+an EntryItem's info to a recyclerview.
+*/
+
 package com.example.javaharkka;
 
 import android.view.LayoutInflater;
@@ -38,7 +45,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View v) {
+                public void onClick(View v) { // Adds a clicklistener to the newly created cardview
                     if (listener != null){
                         int position = getAdapterPosition();
                         if (position != RecyclerView.NO_POSITION){
@@ -49,7 +56,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
             });
             deleteImage.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View v) {
+                public void onClick(View v) {   // Adds a clicklistener to delete the new entry
                     if (listener != null){
                         int position = getAdapterPosition();
                         if (position != RecyclerView.NO_POSITION){
@@ -67,14 +74,14 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) { // Attaches an EntryItem's info to a entry.xml layout
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.entry,parent,false);
         ViewHolder viewHolder = new ViewHolder(v, mListener);
         return viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) { // Inserts the newly made entry to the desired recyclerview
         EntryItem currentItem = mEntryList.get(position);
         holder.techView.setText(currentItem.getTechName());
         holder.numView.setText(String.valueOf(currentItem.getNumber()));

@@ -1,3 +1,13 @@
+    /*
+    CiviVPlanner; Android Studio; Tommi Kunnari; Adapter_policy.class;
+
+    This adapter manages adding new entry_policy.xml cardviews containing
+    a PolicyItem's info to a recyclerview. A modified version of Adapter. I know
+    this could have been done a bit more cleanly, but this works so I'm going
+    with it for now. I might fix this in the future. This one doesn't introduce
+    any clicklisteners.
+    */
+
 package com.example.javaharkka;
 
 import android.graphics.Color;
@@ -35,14 +45,14 @@ public class Adapter_policy extends RecyclerView.Adapter<Adapter_policy.ViewHold
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {         // Attaches a PolicyItem's info to a entry_browse.xml layout
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.entry_review,parent,false);
         ViewHolder viewHolder = new ViewHolder(v);
         return viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {                // Modifies the newly made entry and adds it to the desired recyclerview
         PolicyItem currentItem = mEntryList.get(position);
         holder.entryView.setText(currentItem.getPolicyName());
         holder.numView.setText(String.valueOf(currentItem.getNumber()));

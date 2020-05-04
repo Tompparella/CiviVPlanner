@@ -1,3 +1,11 @@
+/*
+CiviVPlanner; Android Studio; Tommi Kunnari; Verification.class;
+
+In this activity class, the user needs to type in a randomly generated
+sequence of numbers and letters. If the input is correct, the user is
+taken to the apps' main screen.
+*/
+
 package com.example.javaharkka;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -41,7 +49,7 @@ public class Verification extends AppCompatActivity {
         });
 
     }
-    private void verify(){
+    private void verify(){  // Compares the typed string to the randomly generated String and handles proceeding accordingly
         if (verification_code.equals(codeEdit.getText().toString())){
             Toast.makeText(Verification.this, "Correct authentication code!", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(Verification.this,MainActivity.class);
@@ -52,7 +60,7 @@ public class Verification extends AppCompatActivity {
         }
     }
 
-    private String getRandString(){
+    private String getRandString(){     // Generates a random String by getting a random index character from the possible character String
         String chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
         StringBuilder sb = new StringBuilder();
         Random rand = new Random();

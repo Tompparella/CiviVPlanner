@@ -1,3 +1,13 @@
+/*
+CiviVPlanner; Android Studio; Tommi Kunnari; Plan.class;
+
+This is the class that stores a single plan's information.
+It contains everything from a list of technologies to the
+plan's rating score. Variables and methods are declare public
+because that's the only way Firebase can process them.
+*/
+
+
 package com.example.javaharkka;
 
 import java.io.Serializable;

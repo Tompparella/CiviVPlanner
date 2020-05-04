@@ -1,3 +1,11 @@
+/*
+CiviVPlanner; Android Studio; Tommi Kunnari; Login.class;
+
+A class that handles creating the Plan to be passed to following activities.
+Also lets the user select the desired victory type.
+*/
+
+
 package com.example.javaharkka;
 
 import androidx.appcompat.app.AppCompatActivity;

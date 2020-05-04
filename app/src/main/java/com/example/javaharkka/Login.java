@@ -1,3 +1,11 @@
+/*
+CiviVPlanner; Android Studio; Tommi Kunnari; Login.class;
+
+A class that handles logging the user in. Loads user info
+from the database and checks whether entered info is correct.
+This is also the first activity that's fired on program launch.
+*/
+
 package com.example.javaharkka;
 
 import androidx.annotation.NonNull;
@@ -90,7 +98,7 @@ public class Login extends AppCompatActivity {
         startActivity(new Intent(Login.this, Register.class));
     }
 
-    private void login(){    // Checks whether the user's credentials are correct.
+    private void login(){    // Checks whether the user's credentials are correct and logs the user in.
         String email, password;
         email = userEmail.getText().toString();
         password = userPswrd.getText().toString();

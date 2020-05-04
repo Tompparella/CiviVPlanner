@@ -1,3 +1,10 @@
+/*
+CiviVPlanner; Android Studio; Tommi Kunnari; Users.class;
+
+This is the class that stores user information. It's stored
+in the database and accessed seldomly.
+*/
+
 package com.example.javaharkka;
 
 public class Users {

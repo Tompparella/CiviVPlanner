@@ -1,3 +1,10 @@
+/*
+CiviVPlanner; Android Studio; Tommi Kunnari; Description.class;
+
+This activity let's the user determine a description, or a guide
+for their plan. It must be between 20-1000 characters long.
+*/
+
 package com.example.javaharkka;
 
 import androidx.appcompat.app.AppCompatActivity;

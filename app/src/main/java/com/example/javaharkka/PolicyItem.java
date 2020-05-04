@@ -1,3 +1,11 @@
+/*
+CiviVPlanner; Android Studio; Tommi Kunnari; PolicyItem.class;
+
+A class that stores a policy entry's information and is later
+stored to the Plan class as a list. All variables and methods are
+declared public for Firebase to be able to process them.
+*/
+
 package com.example.javaharkka;
 
 import java.io.Serializable;

@@ -1,3 +1,13 @@
+/*
+CiviVPlanner; Android Studio; Tommi Kunnari; Policypath.class;
+
+This activity class handles creating the plan's policy path. It creates
+a list of PolicyItems which the user can then append by clicking elements
+in the UI, which is why there are so many buttons initiated. This could have
+probably been done a lot better, but I couldn't find anything about it. Regardless,
+this solution works, though I'm not exactly proud of it.
+*/
+
 package com.example.javaharkka;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,7 +22,7 @@ import android.widget.Toast;
 
 public class Policypath extends AppCompatActivity implements View.OnClickListener {
 
-    private int count = 0, pType;
+    private int count = 0, pType; // Count visualises the user the order in which the path is being made.
     private Plan plan;
     private String policyName;
     private Button tradition, aristo, olig, legal, monar, landed, liberty, repub, citiz, collect, merito, repre,
@@ -23,7 +33,7 @@ public class Policypath extends AppCompatActivity implements View.OnClickListene
     private Button freedomBtn, autocracyBtn,orderBtn;
     private PolicyItem item;
 
-    private View.OnClickListener listener = new View.OnClickListener() {
+    private View.OnClickListener listener = new View.OnClickListener() {    // Add a listener for the ideology buttons. Also proceeds to the next activity.
         @Override
         public void onClick(View v) {
             switch (v.getId()){
@@ -80,7 +90,7 @@ public class Policypath extends AppCompatActivity implements View.OnClickListene
             }
         });
 
-        ImageButton redoButton = (ImageButton) findViewById(R.id.redoBtn);
+        ImageButton redoButton = (ImageButton) findViewById(R.id.redoBtn);          // Initiate a button that let's the user refresh the activity and clear the policypath list.
         redoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -102,7 +112,7 @@ public class Policypath extends AppCompatActivity implements View.OnClickListene
 
     }
 
-    private void findPolicyButtons() {
+    private void findPolicyButtons() {          // I'm sorry
         tradition = (Button) findViewById(R.id.btnTradition);
         aristo = (Button) findViewById(R.id.btnAristo);
         olig = (Button) findViewById(R.id.btnOlig);
@@ -159,7 +169,7 @@ public class Policypath extends AppCompatActivity implements View.OnClickListene
         scienre = (Button) findViewById(R.id.btnScien);
     }
 
-    private void setListeners() {
+    private void setListeners() {   // ...so sorry
         tradition.setOnClickListener(this);
         aristo.setOnClickListener(this);
         olig.setOnClickListener(this);
@@ -217,7 +227,7 @@ public class Policypath extends AppCompatActivity implements View.OnClickListene
     }
 
     @Override
-    public void onClick(View v) {
+    public void onClick(View v) {       // Please don't hate me
         count++;
         switch (v.getId()) {
             case R.id.btnTradition:
@@ -439,14 +449,14 @@ public class Policypath extends AppCompatActivity implements View.OnClickListene
         }
         Button temp = (Button) findViewById(v.getId());
         temp.setText(String.valueOf(count));
-        temp.setBackgroundColor(Color.parseColor("#5122FF00"));
+        temp.setBackgroundColor(Color.parseColor("#5122FF00"));     // The policy is added to the list and the entry is colored to signal this.
         item = new PolicyItem(policyName,count,pType);
 
         addPolicy(item);
 
         temp.setClickable(false);
     }
-    private void addPolicy(PolicyItem item){
+    private void addPolicy(PolicyItem item){     // Adds policy to the list
         plan.addPolicy(item);
         Toast.makeText(Policypath.this, "Added " + policyName, Toast.LENGTH_SHORT).show();
     }

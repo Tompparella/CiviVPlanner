@@ -1,3 +1,13 @@
+/*
+CiviVPlanner; Android Studio; Tommi Kunnari; BrowsePlans.class;
+
+This activity loads user created Plans from the database and presents
+them in a recyclerview. The entries have a ImageResource that depends
+on the plan's victory condition, rating, name, and it also shows it's
+creator. By clicking an entry the user is taken to the ReviewPlan
+activity.
+*/
+
 package com.example.javaharkka;
 
 import android.content.Intent;
@@ -114,14 +124,13 @@ public class BrowsePlans extends AppCompatActivity {
             }
         });
     }
-    private void getPlans(){
+    private void getPlans(){            // Loads Plans from the database
         System.out.println("Alkaa");
         dbRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 Iterator<DataSnapshot> items = dataSnapshot.getChildren().iterator();
                 entryList.clear();
-                System.out.println("Ennen looppia");
                 while(items.hasNext()){
                     DataSnapshot item = items.next();
                     plan = item.getValue(Plan.class);
@@ -138,12 +147,12 @@ public class BrowsePlans extends AppCompatActivity {
             }
         });
     }
-    private void openPlan(Plan entry){
+    private void openPlan(Plan entry){                  // Opens the PlanReview activity and let's the user inspect the selected plan
         Intent intent = new Intent(this, PlanReview.class);
         intent.putExtra("entry", entry);
         startActivity(intent);
     }
-    private void sortList(){
+    private void sortList(){                            // Sorts the list of plan's score-vise
         Collections.sort(entryList, new Comparator<Plan>() {
             @Override
             public int compare(Plan o1, Plan o2) {
@@ -151,7 +160,7 @@ public class BrowsePlans extends AppCompatActivity {
             }
         });
     }
-    private void sortVictory(String type){
+    private void sortVictory(String type){              // Filter's out all plans that don't match the selected victory type.
         entryList = new ArrayList<>(tempList);
         for (int k=0; k<entryList.size();){
             if(entryList.get(k).orientation.equals(type)){
@@ -162,43 +171,3 @@ public class BrowsePlans extends AppCompatActivity {
         }
     }
 }
-
-/*Iterator<DataSnapshot> items = dataSnapshot.getChildren().iterator();
-                Toast.makeText(BrowsePlans.this,"Number of plans: " + dataSnapshot.getChildrenCount(), Toast.LENGTH_SHORT).show();
-                while (items.hasNext()){
-                    System.out.println("Kierros");
-                    DataSnapshot item = items.next();
-                    if (item != null) {
-                        Plan plan = new Plan();
-                        plan.creator = item.child("creator").getValue().toString();
-                        plan.creatorId = item.child("creatorId").getValue().toString();
-                        plan.description = item.child("description").getValue().toString();
-                        plan.ideology = item.child("ideology").getValue().toString();
-                        plan.orientation = item.child("orientation").getValue().toString();
-                        plan.planName = item.child("planName").getValue().toString();
-                        ArrayList<PolicyItem> temp1 = new ArrayList<>();
-                        int k = 0;
-                        for (DataSnapshot ds : dataSnapshot.child("policyOrder").getChildren()) {
-                            PolicyItem pol = ds.child(Integer.toString(k)).getValue(PolicyItem.class);
-                            k++;
-                            temp1.add(pol);
-                        }
-                        ArrayList<EntryItem> temp2 = new ArrayList<>();
-                        k = 0;
-                        for (DataSnapshot ds : dataSnapshot.child("techOrder").getChildren()) {
-                            EntryItem tech = ds.child(Integer.toString(k)).getValue(EntryItem.class);
-                            k++;
-                            temp2.add(tech);
-                        }
-                        plan.policyOrder = temp1;
-                        plan.techOrder = temp2;
-                        entryList.add(plan);
-                        System.out.println(entryList);
-                    } else{
-                        System.out.println("Ei alkioita");
-                        break;
-                    }
-                    i++;
-                }
-                System.out.println("Loppuu");
-                */

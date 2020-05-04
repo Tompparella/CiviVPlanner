@@ -1,3 +1,11 @@
+    /*
+    CiviVPlanner; Android Studio; Tommi Kunnari; ReviewPath.class;
+
+    This activity class presents the user with a plans' technology- or
+    policy path. This depends on what boolean value is passed from previous
+    activity.
+    */
+
 package com.example.javaharkka;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,7 +28,7 @@ public class ReviewPath extends AppCompatActivity {
     private RecyclerView.LayoutManager layoutManager;
     private ArrayList<PolicyItem> policyList = new ArrayList<>();
     private ArrayList<EntryItem> techList = new ArrayList<>();
-    private boolean isTechPath;
+    private boolean isTechPath; // Boolean value that decides whether the user wants to inspect policies or technologies.
     private ImageButton returnBtn;
     private TextView pathTxt;
 
@@ -32,7 +40,7 @@ public class ReviewPath extends AppCompatActivity {
         Intent intent = getIntent();
         isTechPath = (boolean) intent.getSerializableExtra("bool");
 
-        if (isTechPath){
+        if (isTechPath){        // Set the view accordingly
             techList = (ArrayList<EntryItem>) intent.getSerializableExtra("techs");
         } else {
             policyList = (ArrayList<PolicyItem>) intent.getSerializableExtra("pols");

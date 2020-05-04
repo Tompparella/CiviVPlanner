@@ -1,3 +1,13 @@
+    /*
+    CiviVPlanner; Android Studio; Tommi Kunnari; Techpath.class;
+
+    A recyclerview is created where all of the new plans' technologies (EntryItem)
+    are listed as cardviews in rising order. The cardviews are managed by an adapter.
+    The user is able to delete entries or add them by clicking on one. When clicked,
+    the entry will take the user to TechPathmenu activity where it's possible to add
+    more techs to the list.
+    */
+
 package com.example.javaharkka;
 
 import androidx.annotation.Nullable;
@@ -36,7 +46,7 @@ public class Techpath extends AppCompatActivity {
         buildButtons();
 
     }
-    private void openTechmenu(){
+    private void openTechmenu(){            // Opens the activity that allows user to add more techs to the plan.
         Intent intent = new Intent(this,Techpathmenu.class);
         intent.putExtra("plan",plan);
         startActivityForResult(intent,1);
@@ -54,7 +64,7 @@ public class Techpath extends AppCompatActivity {
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {       // Gets the plan bac after returning from TechPathMenu activity
         if(requestCode == 1 && resultCode == RESULT_OK){
             plan = (Plan) data.getExtras().getSerializable("plan");
             entryList = plan.techOrder;
@@ -84,7 +94,7 @@ public class Techpath extends AppCompatActivity {
         });
     }
 
-    private void removeItem(int position){
+    private void removeItem(int position){  // Removes an entry from the list
         if (position == 0){
             entryList.remove(position);
             recyclerAdapter.notifyItemRemoved(position);

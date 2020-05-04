@@ -1,3 +1,10 @@
+    /*
+    CiviVPlanner; Android Studio; Tommi Kunnari; About.class;
+
+    This activity includes a short documentary and guide on the use
+    of the app.
+    */
+
 package com.example.javaharkka;
 
 import androidx.appcompat.app.AppCompatActivity;

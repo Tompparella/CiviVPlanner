@@ -1,3 +1,14 @@
+/*
+CiviVPlanner; Android Studio; Tommi Kunnari; PlanReview.class;
+
+This class handles the plan inspection activity. It loads the plan's
+information to different views, sets image resources accordingly, and
+lets the user rate the plan. While rating, the userInfo file is read
+and checked whether the user has rated the plan already during the session.
+The voted plan's name is also written to the file for future checks.
+*/
+
+
 package com.example.javaharkka;
 
 import androidx.appcompat.app.AlertDialog;
@@ -16,6 +27,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseException;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -187,25 +199,29 @@ public class PlanReview extends AppCompatActivity {
             }
         });
     }
-    private void updateScore(){
+    private void updateScore(){     // This method updates the current plan's score and vote values both locally and in the database.
         score.setText(((int) entry.score) + "%");
         if (entry.score < 51){
             score.setTextColor(Color.parseColor("#FA6337"));
         } else {
             score.setTextColor(Color.parseColor("#1DD500"));
         }
-        dbRef.child(entry.planName).child("score").setValue(entry.score);
-        dbRef.child(entry.planName).child("votes").setValue(entry.votes);
-        dbRef.child(entry.planName).child("upvotes").setValue(entry.upvotes);
+        try {
+            dbRef.child(entry.planName).child("score").setValue(entry.score);
+            dbRef.child(entry.planName).child("votes").setValue(entry.votes);
+            dbRef.child(entry.planName).child("upvotes").setValue(entry.upvotes);
+        } catch (Exception e){
+            Log.wtf("Database error: ",e);
+        }
     }
 
-    private void openPolicyPath(){
+    private void openPolicyPath(){   // Opens ReviewPath activity class with policy entries
         Intent intent = new Intent(PlanReview.this, ReviewPath.class);
         intent.putExtra("pols", entry.policyOrder);
         intent.putExtra("bool", false);
         startActivity(intent);
     }
-    private void openTechPath(){
+    private void openTechPath(){    // Opens ReviewPath activity class with tech entries
         Intent intent = new Intent(PlanReview.this, ReviewPath.class);
         intent.putExtra("techs", entry.techOrder);
         intent.putExtra("bool", true);
@@ -281,8 +297,7 @@ public class PlanReview extends AppCompatActivity {
             return vote;
 
         } catch (IOException e) {
-            Log.wtf("PlanReview", "Error reading file.");
-            Log.wtf("File IO error: ",e);
+            Log.wtf("File IO error:", e);
             return false;
         }
     }

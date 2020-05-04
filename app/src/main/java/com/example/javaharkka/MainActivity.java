@@ -1,3 +1,12 @@
+    /*
+    CiviVPlanner; Android Studio; Tommi Kunnari; MainActivity.class;
+
+    This is the main menu after logging in. It has
+    buttons that begin different processes within
+    the app. It also reads the user's id and user-
+    name from the database.
+    */
+
 package com.example.javaharkka;
 
 import androidx.annotation.NonNull;

@@ -1,3 +1,12 @@
+/*
+CiviVPlanner; Android Studio; Tommi Kunnari; DialogBox.class;
+
+This is a class for a customized dialogbox. It was supposed to
+alert the user of a problem with connecting to the database, but
+I figured it would be better to just use toasts. It's left here
+in case of use in the future.
+*/
+
 package com.example.javaharkka;
 
 import android.app.AlertDialog;

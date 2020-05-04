@@ -1,3 +1,11 @@
+/*
+CiviVPlanner; Android Studio; Tommi Kunnari; Planname.class;
+
+This activity class allows the user to pick a name for their plan
+and then submits it to the database.
+*/
+
+
 package com.example.javaharkka;
 
 import androidx.annotation.NonNull;
@@ -49,7 +57,7 @@ public class Planname extends AppCompatActivity {
         planName = (EditText) findViewById(R.id.planName);
 
     }
-    private void submit() {
+    private void submit() {             // Checks the name's length and runs sendPlan
         int length = planName.getText().toString().length();
         if (length > 5 && length < 20) {
             plan.planName = planName.getText().toString();
@@ -86,7 +94,7 @@ public class Planname extends AppCompatActivity {
             }
         });
     }
-    private void sendPlan(){
+    private void sendPlan(){            // Sends the plan to the databse
         plan.printTechs();
         try {
             dbRef = fbData.getReference().child("Plans");
@@ -98,7 +106,7 @@ public class Planname extends AppCompatActivity {
         }
     }
 
-    private void setCreator(){
+    private void setCreator(){                  // Sets the plan's creator accordingly
         userRef = fbData.getReference("Users").child(fbAuth.getUid());
         userRef.addValueEventListener(new ValueEventListener() {
             @Override

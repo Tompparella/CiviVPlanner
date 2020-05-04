@@ -1,3 +1,13 @@
+/*
+CiviVPlanner; Android Studio; Tommi Kunnari; Techpathmenu.class;
+
+This is the activity that allows the user to easily add more techs to
+the plan. It also introduces a counter for already added plans as well as
+color changing buttons. It's one big scrollable view with a lot of buttons.
+I didn't find a better way to build the views, which is the reason for the
+following mess. It works, but it's horrible. I'm sorry.
+*/
+
 package com.example.javaharkka;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -54,7 +64,7 @@ public class Techpathmenu extends AppCompatActivity implements View.OnClickListe
     }
 
     @Override
-    public void onClick(View v) {
+    public void onClick(View v) {   // Oh god
         switch (v.getId()){
             case R.id.potteryBtn:
                 techName = ("Pottery");
@@ -264,7 +274,7 @@ public class Techpathmenu extends AppCompatActivity implements View.OnClickListe
                 techName = ("Future tech");
                 break;
             case R.id.globalBtn:
-                techName = ("Globalization");
+                techName = ("Globalization");   // It just keeps on going
                 break;
             case R.id.laserBtn:
                 techName = ("Lasers");

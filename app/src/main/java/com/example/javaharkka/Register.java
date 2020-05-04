@@ -1,3 +1,10 @@
+/*
+CiviVPlanner; Android Studio; Tommi Kunnari; Register.class;
+
+This class handles registering new users to database. It also handles
+user password requirements and validates user input.
+*/
+
 package com.example.javaharkka;
 
 import androidx.annotation.NonNull;
@@ -68,7 +75,7 @@ public class Register extends AppCompatActivity {
                  if(task.isSuccessful()){
                      addUser();
                      Toast.makeText(Register.this, "Registration succesful!",Toast.LENGTH_SHORT).show();
-                     startActivity(new Intent(Register.this, Login.class));
+                     finish();
                  } else {
                      Toast.makeText(Register.this, "Registration failed",Toast.LENGTH_SHORT).show();
                  }
@@ -76,7 +83,7 @@ public class Register extends AppCompatActivity {
          });
      }
 
-     private boolean validate() {
+     private boolean validate() {   // Checks if users input is sufficient.
      boolean result = false;
      name = userName.getText().toString();
      userpswrd = userPassword.getText().toString();
@@ -85,7 +92,7 @@ public class Register extends AppCompatActivity {
          Toast.makeText(this,"Please verify that you entered the info correctly.", Toast.LENGTH_SHORT).show();
      } else {
          boolean number = false, capital = false, lower = false;
-         for (int i=0;i<userpswrd.length();i++){
+         for (int i=0;i<userpswrd.length();i++){   // Checks if password input includes a capital- and lower letter, and a number
              char currentChar = userpswrd.charAt(i);
              if (Character.isLowerCase(currentChar)){
                  lower = true;
@@ -95,7 +102,7 @@ public class Register extends AppCompatActivity {
                  number = true;
              }
          }
-         if (userpswrd.matches(".*[!#¤%&/()=?*)].*") && lower && capital && number && (userpswrd.length() >= 12)){
+         if (userpswrd.matches(".*[!#¤%&/()=?*)].*") && lower && capital && number && (userpswrd.length() >= 12)){ // Checks if password input contains a symbol and if the aforementioned conditions are fulfilled
              result = true;
          } else{
              Toast.makeText(this,"Make sure that your password follows the given guidelines.", Toast.LENGTH_SHORT).show();
