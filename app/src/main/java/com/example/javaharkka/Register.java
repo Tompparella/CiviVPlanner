@@ -60,11 +60,11 @@ public class Register extends AppCompatActivity {
         });
         }
     private void setupUI(){
-        userName = (EditText) findViewById(R.id.etUsername);
-        userPassword = (EditText) findViewById(R.id.etPassword);
-        userEmail = (EditText) findViewById(R.id.etEmail);
-        regBtn = (Button) findViewById(R.id.btnRegister);
-        userLogin = (TextView) findViewById(R.id.txtLogin);
+        userName = findViewById(R.id.etUsername);
+        userPassword = findViewById(R.id.etPassword);
+        userEmail = findViewById(R.id.etEmail);
+        regBtn = findViewById(R.id.btnRegister);
+        userLogin = findViewById(R.id.txtLogin);
      }
      private void register(){
          String user_mail = userEmail.getText().toString().trim();
@@ -102,7 +102,7 @@ public class Register extends AppCompatActivity {
                  number = true;
              }
          }
-         if (userpswrd.matches(".*[!#¤%&/()=?*)].*") && lower && capital && number && (userpswrd.length() >= 12)){ // Checks if password input contains a symbol and if the aforementioned conditions are fulfilled
+         if (userpswrd.matches(".*[!#¤%&/()=?*].*") && lower && capital && number && (userpswrd.length() >= 12)){ // Checks if password input contains a symbol and if the aforementioned conditions are fulfilled
              result = true;
          } else{
              Toast.makeText(this,"Make sure that your password follows the given guidelines.", Toast.LENGTH_SHORT).show();

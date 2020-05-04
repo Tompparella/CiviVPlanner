@@ -54,7 +54,7 @@ public class Planname extends AppCompatActivity {
         }
 
         buildButtons();
-        planName = (EditText) findViewById(R.id.planName);
+        planName = findViewById(R.id.planName);
 
     }
     private void submit() {             // Checks the name's length and runs sendPlan
@@ -74,14 +74,14 @@ public class Planname extends AppCompatActivity {
         }
     }
     private void buildButtons(){
-        ImageButton returnButton = (ImageButton) findViewById(R.id.returnButton);
+        ImageButton returnButton = findViewById(R.id.returnButton);
         returnButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 moveBack();
             }
         });
-        Button submitButton = (Button) findViewById(R.id.submitButton);
+        Button submitButton = findViewById(R.id.submitButton);
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

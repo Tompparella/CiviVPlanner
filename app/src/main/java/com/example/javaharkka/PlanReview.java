@@ -62,7 +62,7 @@ public class PlanReview extends AppCompatActivity {
             System.out.println("Toimii");
         } catch (Exception e){
             Toast.makeText(PlanReview.this,"Error connecting to database", Toast.LENGTH_SHORT).show();
-            Log.wtf("Database error: ",e);;
+            Log.wtf("Database error: ",e);
             finish();
         }
 
@@ -75,18 +75,18 @@ public class PlanReview extends AppCompatActivity {
 
     }
     private void findViews(){
-        planName = (TextView) findViewById(R.id.planNameTxt);
-        score = (TextView) findViewById(R.id.scoreTxt);
-        creator = (TextView) findViewById(R.id.creatorTxt);
-        description = (TextView) findViewById(R.id.descriptionTxt);
-        ideologyImg = (ImageView) findViewById(R.id.idelogyImg);
-        victoryImg = (ImageView) findViewById(R.id.victoryImg);
-        likeBtn = (ImageButton) findViewById(R.id.likeBtn);
-        dislikeBtn = (ImageButton) findViewById(R.id.dislikeBtn);
-        techPathBtn = (Button) findViewById(R.id.techBtn);
-        policyPathBtn = (Button) findViewById(R.id.policyBtn);
-        returnBtn = (ImageButton) findViewById(R.id.returnBtn);
-        deleteBtn = (Button) findViewById(R.id.deleteBtn);
+        planName = findViewById(R.id.planNameTxt);
+        score = findViewById(R.id.scoreTxt);
+        creator = findViewById(R.id.creatorTxt);
+        description = findViewById(R.id.descriptionTxt);
+        ideologyImg = findViewById(R.id.idelogyImg);
+        victoryImg = findViewById(R.id.victoryImg);
+        likeBtn = findViewById(R.id.likeBtn);
+        dislikeBtn = findViewById(R.id.dislikeBtn);
+        techPathBtn = findViewById(R.id.techBtn);
+        policyPathBtn = findViewById(R.id.policyBtn);
+        returnBtn = findViewById(R.id.returnBtn);
+        deleteBtn = findViewById(R.id.deleteBtn);
     }
 
     private void setTextViews(){

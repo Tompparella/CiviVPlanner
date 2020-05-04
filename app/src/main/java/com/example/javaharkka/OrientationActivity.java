@@ -29,16 +29,16 @@ public class OrientationActivity extends AppCompatActivity implements View.OnCli
     }
 
     private void setViews(){
-        Button tech_button = (Button) findViewById(R.id.techBtn);
-        Button cult_button = (Button) findViewById(R.id.cultBtn);
-        Button diplo_button = (Button) findViewById(R.id.diploBtn);
-        Button conq_button = (Button) findViewById(R.id.conqBtn);
+        Button tech_button = findViewById(R.id.techBtn);
+        Button cult_button = findViewById(R.id.cultBtn);
+        Button diplo_button = findViewById(R.id.diploBtn);
+        Button conq_button = findViewById(R.id.conqBtn);
         tech_button.setOnClickListener(this);
         cult_button.setOnClickListener(this);
         diplo_button.setOnClickListener(this);
         conq_button.setOnClickListener(this);
 
-        ImageButton returnButton = (ImageButton) findViewById(R.id.returnButton);
+        ImageButton returnButton = findViewById(R.id.returnButton);
         returnButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

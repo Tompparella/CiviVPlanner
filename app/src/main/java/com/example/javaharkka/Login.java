@@ -53,9 +53,9 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        btnLogin = (Button) findViewById(R.id.btnLogin);
-        userEmail = (EditText) findViewById(R.id.etEmail);
-        userPswrd = (EditText) findViewById(R.id.etPassword);
+        btnLogin = findViewById(R.id.btnLogin);
+        userEmail = findViewById(R.id.etEmail);
+        userPswrd = findViewById(R.id.etPassword);
 
         fbAuth = FirebaseAuth.getInstance();
         fbData = FirebaseDatabase.getInstance();
@@ -86,7 +86,7 @@ public class Login extends AppCompatActivity {
                 finish();
                 startActivity(new Intent(Login.this, Verification.class));
         }
-        userRegister = (TextView) findViewById(R.id.txtRegister);
+        userRegister = findViewById(R.id.txtRegister);
         userRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

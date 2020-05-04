@@ -79,7 +79,7 @@ public class BrowsePlans extends AppCompatActivity {
     }
 
     private void buildButtons(){
-        ImageButton returnButton = (ImageButton) findViewById(R.id.returnButton);
+        ImageButton returnButton = findViewById(R.id.returnButton);
 
         returnButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,10 +90,10 @@ public class BrowsePlans extends AppCompatActivity {
 
         ImageButton diploBtn, conqBtn, cultBtn, scienceBtn;
 
-        diploBtn = (ImageButton) findViewById(R.id.diploBtn);
-        conqBtn = (ImageButton) findViewById(R.id.conqBtn);
-        cultBtn = (ImageButton) findViewById(R.id.cultBtn);
-        scienceBtn = (ImageButton) findViewById(R.id.scienceBtn);
+        diploBtn = findViewById(R.id.diploBtn);
+        conqBtn = findViewById(R.id.conqBtn);
+        cultBtn = findViewById(R.id.cultBtn);
+        scienceBtn = findViewById(R.id.scienceBtn);
 
         diploBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -131,10 +131,15 @@ public class BrowsePlans extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 Iterator<DataSnapshot> items = dataSnapshot.getChildren().iterator();
                 entryList.clear();
-                while(items.hasNext()){
-                    DataSnapshot item = items.next();
-                    plan = item.getValue(Plan.class);
-                    entryList.add(plan);
+
+                try {
+                    while (items.hasNext()) {
+                        DataSnapshot item = items.next();
+                        plan = item.getValue(Plan.class);
+                        entryList.add(plan);
+                    }
+                } catch (Exception e){
+                    Log.wtf("Plans read error: ", e);
                 }
                 sortList();
                 tempList = new ArrayList<>(entryList);

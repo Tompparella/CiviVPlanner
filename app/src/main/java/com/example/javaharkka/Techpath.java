@@ -64,8 +64,9 @@ public class Techpath extends AppCompatActivity {
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {       // Gets the plan bac after returning from TechPathMenu activity
-        if(requestCode == 1 && resultCode == RESULT_OK){
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {       // Gets the plan back after returning from TechPathMenu activity
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1 && resultCode == RESULT_OK) {
             plan = (Plan) data.getExtras().getSerializable("plan");
             entryList = plan.techOrder;
             buildRecView();
@@ -116,7 +117,7 @@ public class Techpath extends AppCompatActivity {
     }
 
     private void buildButtons(){
-        ImageButton returnButton = (ImageButton) findViewById(R.id.returnButton);
+        ImageButton returnButton = findViewById(R.id.returnButton);
 
         returnButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -128,7 +129,7 @@ public class Techpath extends AppCompatActivity {
             }
         });
 
-        Button nextButton = (Button) findViewById(R.id.nextButton);
+        Button nextButton = findViewById(R.id.nextButton);
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

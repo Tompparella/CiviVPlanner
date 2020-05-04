@@ -31,7 +31,7 @@ public class Description extends AppCompatActivity {
 
         setButtons();
 
-        dTxt = (EditText) findViewById(R.id.descriptionTxt);
+        dTxt = findViewById(R.id.descriptionTxt);
 
     }
     private void openNext(){
@@ -48,8 +48,8 @@ public class Description extends AppCompatActivity {
     }
 
     private void setButtons(){
-        ImageButton returnButton = (ImageButton) findViewById(R.id.returnButton);
-        Button nextButton = (Button) findViewById(R.id.nextButton);
+        ImageButton returnButton = findViewById(R.id.returnButton);
+        Button nextButton = findViewById(R.id.nextButton);
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

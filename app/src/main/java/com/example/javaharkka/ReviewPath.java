@@ -46,7 +46,7 @@ public class ReviewPath extends AppCompatActivity {
             policyList = (ArrayList<PolicyItem>) intent.getSerializableExtra("pols");
         }
 
-        returnBtn = (ImageButton) findViewById(R.id.returnBtn);
+        returnBtn = findViewById(R.id.returnBtn);
         returnBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,7 +60,7 @@ public class ReviewPath extends AppCompatActivity {
     private void buildRecView() {
         recyclerView = findViewById(R.id.base);
         layoutManager = new LinearLayoutManager(this);
-        pathTxt = (TextView) findViewById(R.id.pathTxt);
+        pathTxt = findViewById(R.id.pathTxt);
         if (isTechPath){
             techAdapter = new Adapter_tech(techList);
             recyclerView.setLayoutManager(layoutManager);

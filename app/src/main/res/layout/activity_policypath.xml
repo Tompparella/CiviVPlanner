@@ -17,7 +17,7 @@
         app:layout_constraintTop_toBottomOf="@+id/policypathText">
 
         <FrameLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -871,7 +871,7 @@
         android:layout_height="33dp"
         android:fontFamily="casual"
         android:text="Policy path:"
-        android:textSize="24dp"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -74,7 +74,7 @@
         android:id="@+id/btnRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#73F8BA28"
+        android:background="#9CE8CF86"
         android:fontFamily="casual"
         android:text="Register"
         android:textStyle="bold"

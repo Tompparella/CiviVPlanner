@@ -52,28 +52,28 @@ public class MainActivity extends AppCompatActivity {
     // Similar methods are used in almost every activity-class of the program.
 
     private void setButtons(){
-        browseBtn = (Button) findViewById(R.id.browseBtn);
+        browseBtn = findViewById(R.id.browseBtn);
         browseBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openBrowse();
             }
         });
-        btnLogout = (Button) findViewById(R.id.btnLogout);
+        btnLogout = findViewById(R.id.btnLogout);
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 logout();
             }
         });
-        Button orientation_button = (Button) findViewById(R.id.Newplan);
+        Button orientation_button = findViewById(R.id.Newplan);
         orientation_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openNewPlan();
             }
         });
-        aboutBtn = (Button) findViewById(R.id.aboutBtn);
+        aboutBtn = findViewById(R.id.aboutBtn);
         aboutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -110,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
         fbAuth = FirebaseAuth.getInstance();
         fbData = FirebaseDatabase.getInstance();
         dbRef = fbData.getReference("Users").child(fbAuth.getUid());  // Gets a reference of the user's info from the "Users" branch of the database.
-        txtCurrentUser = (TextView) findViewById(R.id.txtCurrentUser);
+        txtCurrentUser = findViewById(R.id.txtCurrentUser);
         dbRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {  // Reads data from the reference.
@@ -126,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this,"Couldn't connect to database. Please check your connection.",Toast.LENGTH_SHORT).show();
             }
         });
-        txtUid = (TextView) findViewById(R.id.txtUid);
+        txtUid = findViewById(R.id.txtUid);
         txtUid.setText(" UserID: " + fbAuth.getUid());
     }
 }

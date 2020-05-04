@@ -35,12 +35,12 @@ public class Verification extends AppCompatActivity {
         setViews();
     }
     private void setViews(){
-        codeTxt = (TextView) findViewById(R.id.codeTxt);
+        codeTxt = findViewById(R.id.codeTxt);
         verification_code = getRandString();
         codeTxt.setText(verification_code);
 
-        codeEdit = (EditText) findViewById(R.id.codeEdit);
-        submitBtn = (Button) findViewById(R.id.submitBtn);
+        codeEdit = findViewById(R.id.codeEdit);
+        submitBtn = findViewById(R.id.submitBtn);
         submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

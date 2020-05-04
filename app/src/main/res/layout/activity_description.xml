@@ -25,7 +25,7 @@
         android:layout_height="85dp"
         android:fontFamily="casual"
         android:text="Explain your plan:"
-        android:textSize="24dp"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -34,7 +34,7 @@
         android:id="@+id/btnLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#FFD797"
+        android:background="#9CE8CF86"
         android:fontFamily="casual"
         android:text="@string/title_activity_login"
         android:textStyle="bold"

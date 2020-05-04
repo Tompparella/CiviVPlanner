@@ -18,7 +18,7 @@
         android:layout_toRightOf="@+id/returnButton"
         android:fontFamily="casual"
         android:text="Technology path:"
-        android:textSize="24dp" />
+        android:textSize="24sp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/base"

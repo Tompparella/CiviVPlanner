@@ -78,7 +78,7 @@ public class Policypath extends AppCompatActivity implements View.OnClickListene
 
     private void buildButtons() {
         findPolicyButtons();
-        ImageButton returnButton = (ImageButton) findViewById(R.id.returnButton);
+        ImageButton returnButton = findViewById(R.id.returnButton);
         returnButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -90,7 +90,7 @@ public class Policypath extends AppCompatActivity implements View.OnClickListene
             }
         });
 
-        ImageButton redoButton = (ImageButton) findViewById(R.id.redoBtn);          // Initiate a button that let's the user refresh the activity and clear the policypath list.
+        ImageButton redoButton = findViewById(R.id.redoBtn);          // Initiate a button that let's the user refresh the activity and clear the policypath list.
         redoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -103,9 +103,9 @@ public class Policypath extends AppCompatActivity implements View.OnClickListene
             }
         });
 
-        freedomBtn = (Button) findViewById(R.id.freedomBtn);
-        autocracyBtn = (Button) findViewById(R.id.autocracyBtn);
-        orderBtn = (Button) findViewById(R.id.orderBtn);
+        freedomBtn = findViewById(R.id.freedomBtn);
+        autocracyBtn = findViewById(R.id.autocracyBtn);
+        orderBtn = findViewById(R.id.orderBtn);
         freedomBtn.setOnClickListener(listener);
         autocracyBtn.setOnClickListener(listener);
         orderBtn.setOnClickListener(listener);
@@ -113,60 +113,60 @@ public class Policypath extends AppCompatActivity implements View.OnClickListene
     }
 
     private void findPolicyButtons() {          // I'm sorry
-        tradition = (Button) findViewById(R.id.btnTradition);
-        aristo = (Button) findViewById(R.id.btnAristo);
-        olig = (Button) findViewById(R.id.btnOlig);
-        legal = (Button) findViewById(R.id.btnLegal);
-        monar = (Button) findViewById(R.id.btnMonar);
-        landed = (Button) findViewById(R.id.btnLand);
-        liberty = (Button) findViewById(R.id.btnLiberty);
-        repub = (Button) findViewById(R.id.btnRepu);
-        citiz = (Button) findViewById(R.id.btnCit);
-        collect = (Button) findViewById(R.id.btnCol);
-        merito = (Button) findViewById(R.id.btnMerit);
-        repre = (Button) findViewById(R.id.btnRep);
-        honor = (Button) findViewById(R.id.btnHonor);
-        warrior = (Button) findViewById(R.id.btnWar);
-        disci = (Button) findViewById(R.id.btnDisci);
-        milicas = (Button) findViewById(R.id.btnmilcas);
-        miltrad = (Button) findViewById(R.id.btnMiltra);
-        prof = (Button) findViewById(R.id.btnProf);
-        piety = (Button) findViewById(R.id.btnPiety);
-        orgre = (Button) findViewById(R.id.btnOrg);
-        mand = (Button) findViewById(R.id.btnMand);
-        theo = (Button) findViewById(R.id.btnTheo);
-        relitol = (Button) findViewById(R.id.btnRelitor);
-        reform = (Button) findViewById(R.id.btnReform);
-        patronage = (Button) findViewById(R.id.btnPatronage);
-        philan = (Button) findViewById(R.id.btnPhila);
-        consul = (Button) findViewById(R.id.btnConsul);
-        scholas = (Button) findViewById(R.id.btnScholas);
-        culdip = (Button) findViewById(R.id.btnCuldip);
-        mercon = (Button) findViewById(R.id.btnMercon);
-        aesthetics = (Button) findViewById(R.id.btnAesthetics);
-        culce = (Button) findViewById(R.id.btnCultur);
-        fine = (Button) findViewById(R.id.btnFine);
-        flour = (Button) findViewById(R.id.btnFlour);
-        artist = (Button) findViewById(R.id.btnArtist);
-        cultur = (Button) findViewById(R.id.btnCulex);
-        commerce = (Button) findViewById(R.id.btnCommerce);
-        wagon = (Button) findViewById(R.id.btnWagon);
-        mercar = (Button) findViewById(R.id.btnMercen);
-        entre = (Button) findViewById(R.id.btnEntre);
-        mercant = (Button) findViewById(R.id.btnMercant);
-        protect = (Button) findViewById(R.id.btnProtect);
-        exploration = (Button) findViewById(R.id.btnExploration);
-        mariinf = (Button) findViewById(R.id.btnMaritime);
-        navtrad = (Button) findViewById(R.id.btnNaval);
-        navischo = (Button) findViewById(R.id.btnNavig);
-        mernavy = (Button) findViewById(R.id.btnMernavy);
-        trefle = (Button) findViewById(R.id.btnTreasure);
-        rationalism = (Button) findViewById(R.id.btnRationalism);
-        secul = (Button) findViewById(R.id.btnSecul);
-        humanism = (Button) findViewById(R.id.btnHuman);
-        free = (Button) findViewById(R.id.btnFree);
-        sover = (Button) findViewById(R.id.btnSover);
-        scienre = (Button) findViewById(R.id.btnScien);
+        tradition = findViewById(R.id.btnTradition);
+        aristo = findViewById(R.id.btnAristo);
+        olig = findViewById(R.id.btnOlig);
+        legal = findViewById(R.id.btnLegal);
+        monar = findViewById(R.id.btnMonar);
+        landed = findViewById(R.id.btnLand);
+        liberty = findViewById(R.id.btnLiberty);
+        repub = findViewById(R.id.btnRepu);
+        citiz = findViewById(R.id.btnCit);
+        collect = findViewById(R.id.btnCol);
+        merito = findViewById(R.id.btnMerit);
+        repre = findViewById(R.id.btnRep);
+        honor = findViewById(R.id.btnHonor);
+        warrior = findViewById(R.id.btnWar);
+        disci = findViewById(R.id.btnDisci);
+        milicas = findViewById(R.id.btnmilcas);
+        miltrad = findViewById(R.id.btnMiltra);
+        prof = findViewById(R.id.btnProf);
+        piety = findViewById(R.id.btnPiety);
+        orgre = findViewById(R.id.btnOrg);
+        mand = findViewById(R.id.btnMand);
+        theo = findViewById(R.id.btnTheo);
+        relitol = findViewById(R.id.btnRelitor);
+        reform = findViewById(R.id.btnReform);
+        patronage = findViewById(R.id.btnPatronage);
+        philan = findViewById(R.id.btnPhila);
+        consul = findViewById(R.id.btnConsul);
+        scholas = findViewById(R.id.btnScholas);
+        culdip = findViewById(R.id.btnCuldip);
+        mercon = findViewById(R.id.btnMercon);
+        aesthetics = findViewById(R.id.btnAesthetics);
+        culce = findViewById(R.id.btnCultur);
+        fine = findViewById(R.id.btnFine);
+        flour = findViewById(R.id.btnFlour);
+        artist = findViewById(R.id.btnArtist);
+        cultur = findViewById(R.id.btnCulex);
+        commerce = findViewById(R.id.btnCommerce);
+        wagon = findViewById(R.id.btnWagon);
+        mercar = findViewById(R.id.btnMercen);
+        entre = findViewById(R.id.btnEntre);
+        mercant = findViewById(R.id.btnMercant);
+        protect = findViewById(R.id.btnProtect);
+        exploration = findViewById(R.id.btnExploration);
+        mariinf = findViewById(R.id.btnMaritime);
+        navtrad = findViewById(R.id.btnNaval);
+        navischo = findViewById(R.id.btnNavig);
+        mernavy = findViewById(R.id.btnMernavy);
+        trefle = findViewById(R.id.btnTreasure);
+        rationalism = findViewById(R.id.btnRationalism);
+        secul = findViewById(R.id.btnSecul);
+        humanism = findViewById(R.id.btnHuman);
+        free = findViewById(R.id.btnFree);
+        sover = findViewById(R.id.btnSover);
+        scienre = findViewById(R.id.btnScien);
     }
 
     private void setListeners() {   // ...so sorry
@@ -447,7 +447,7 @@ public class Policypath extends AppCompatActivity implements View.OnClickListene
                 pType = 9;
                 break;
         }
-        Button temp = (Button) findViewById(v.getId());
+        Button temp = findViewById(v.getId());
         temp.setText(String.valueOf(count));
         temp.setBackgroundColor(Color.parseColor("#5122FF00"));     // The policy is added to the list and the entry is colored to signal this.
         item = new PolicyItem(policyName,count,pType);
