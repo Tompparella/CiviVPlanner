@@ -26,9 +26,7 @@ import java.util.ArrayList;
 
 public class Techpath extends AppCompatActivity {
 
-    private RecyclerView recyclerView;
     private Adapter recyclerAdapter;
-    private RecyclerView.LayoutManager layoutManager;
     private Plan plan;
     private ArrayList<EntryItem> entryList = new ArrayList<>();
 
@@ -76,8 +74,8 @@ public class Techpath extends AppCompatActivity {
         if(plan.techOrder.size() != 0){
             entryList = plan.techOrder;
         }
-        recyclerView = findViewById(R.id.base);
-        layoutManager = new LinearLayoutManager(this);
+        RecyclerView recyclerView = findViewById(R.id.base);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerAdapter = new Adapter(entryList);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(recyclerAdapter);

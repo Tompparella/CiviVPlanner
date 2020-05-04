@@ -18,8 +18,6 @@ import android.widget.ImageButton;
 
 public class OrientationActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private Plan plan;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,7 +47,7 @@ public class OrientationActivity extends AppCompatActivity implements View.OnCli
 
     @Override
     public void onClick(View v) {
-        plan = new Plan();
+        Plan plan = new Plan();
         switch (v.getId()) {
             case R.id.techBtn:
                 plan.setOrientation("Technology");

@@ -37,10 +37,12 @@ public class Adapter_browse extends RecyclerView.Adapter<Adapter_browse.ViewHold
     }
 
     public static class ViewHolder_browse extends RecyclerView.ViewHolder {
-        public TextView planView, scoreView, creatorView;
-        public ImageView orientationImage;
+        TextView planView;
+        TextView scoreView;
+        TextView creatorView;
+        ImageView orientationImage;
 
-        public ViewHolder_browse(@NonNull View itemView, final OnItemClickListener listener)
+        ViewHolder_browse(@NonNull View itemView, final OnItemClickListener listener)
         {
             super(itemView);
             planView = itemView.findViewById(R.id.planName);
@@ -81,8 +83,7 @@ public class Adapter_browse extends RecyclerView.Adapter<Adapter_browse.ViewHold
     @Override
     public ViewHolder_browse onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {          // Attaches a Plan's info to a entry_browse.xml layout
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.entry_browse,parent,false);
-        ViewHolder_browse viewHolder = new ViewHolder_browse(v, mListener);
-        return viewHolder;
+        return new ViewHolder_browse(v, mListener);
     }
 
     @Override

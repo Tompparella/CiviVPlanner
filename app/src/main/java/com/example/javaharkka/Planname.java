@@ -32,7 +32,6 @@ public class Planname extends AppCompatActivity {
     private Plan plan;
     private FirebaseAuth fbAuth;
     private FirebaseDatabase fbData;
-    private DatabaseReference userRef, dbRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,7 +96,7 @@ public class Planname extends AppCompatActivity {
     private void sendPlan(){            // Sends the plan to the databse
         plan.printTechs();
         try {
-            dbRef = fbData.getReference().child("Plans");
+            DatabaseReference dbRef = fbData.getReference().child("Plans");
             dbRef.child(plan.planName).setValue(plan);
             Toast.makeText(Planname.this, "Plan submitted!", Toast.LENGTH_SHORT).show();
         } catch (Exception e){
@@ -107,7 +106,7 @@ public class Planname extends AppCompatActivity {
     }
 
     private void setCreator(){                  // Sets the plan's creator accordingly
-        userRef = fbData.getReference("Users").child(fbAuth.getUid());
+        DatabaseReference userRef = fbData.getReference("Users").child(fbAuth.getUid());
         userRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

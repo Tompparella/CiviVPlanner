@@ -25,9 +25,10 @@ public class Adapter_tech extends RecyclerView.Adapter<Adapter_tech.ViewHolder> 
     private ArrayList<EntryItem> mEntryList;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView entryView, numView;
+        TextView entryView;
+        TextView numView;
 
-        public ViewHolder(@NonNull View itemView)
+        ViewHolder(@NonNull View itemView)
         {
             super(itemView);
             entryView = itemView.findViewById(R.id.entryName);
@@ -43,8 +44,7 @@ public class Adapter_tech extends RecyclerView.Adapter<Adapter_tech.ViewHolder> 
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {         // Attaches a EntryItem's info to a entry_browse.xml layout
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.entry_review,parent,false);
-        ViewHolder viewHolder = new ViewHolder(v);
-        return viewHolder;
+        return new ViewHolder(v);
     }
 
     @Override

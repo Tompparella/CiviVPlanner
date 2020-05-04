@@ -32,10 +32,8 @@ public class Register extends AppCompatActivity {
     private Button regBtn;
     private TextView userLogin;
     private FirebaseAuth fbAuth;
-    private String name, userpswrd, useremail;
-    private FirebaseDatabase fbData;
-    private DatabaseReference dbRef;
-    private Users userData;
+    private String name;
+    private String useremail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,13 +84,13 @@ public class Register extends AppCompatActivity {
      private boolean validate() {   // Checks if users input is sufficient.
      boolean result = false;
      name = userName.getText().toString();
-     userpswrd = userPassword.getText().toString();
+         String userpswrd = userPassword.getText().toString();
      useremail = userEmail.getText().toString();
      if(name.isEmpty() || userpswrd.isEmpty() || useremail.isEmpty()){
          Toast.makeText(this,"Please verify that you entered the info correctly.", Toast.LENGTH_SHORT).show();
      } else {
          boolean number = false, capital = false, lower = false;
-         for (int i=0;i<userpswrd.length();i++){   // Checks if password input includes a capital- and lower letter, and a number
+         for (int i = 0; i< userpswrd.length(); i++){   // Checks if password input includes a capital- and lower letter, and a number
              char currentChar = userpswrd.charAt(i);
              if (Character.isLowerCase(currentChar)){
                  lower = true;
@@ -112,9 +110,9 @@ public class Register extends AppCompatActivity {
     }
 
     private void addUser(){     // In this method, the new user is added to the database 'Users' node's children.
-        fbData = FirebaseDatabase.getInstance();
-        dbRef = fbData.getReference().child("Users");
-        userData = new Users(name, useremail);
+        FirebaseDatabase fbData = FirebaseDatabase.getInstance();
+        DatabaseReference dbRef = fbData.getReference().child("Users");
+        Users userData = new Users(name, useremail);
         try{
             System.out.println("Homma alkaa");
             dbRef.child(fbAuth.getUid()).setValue(userData);

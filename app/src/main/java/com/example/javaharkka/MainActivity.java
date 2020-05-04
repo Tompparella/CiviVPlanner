@@ -29,11 +29,8 @@ import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button btnLogout, browseBtn, aboutBtn;
     private FirebaseAuth fbAuth;
-    private FirebaseDatabase fbData;
-    private DatabaseReference dbRef;
-    private TextView txtCurrentUser, txtUid;
+    private TextView txtCurrentUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,14 +49,14 @@ public class MainActivity extends AppCompatActivity {
     // Similar methods are used in almost every activity-class of the program.
 
     private void setButtons(){
-        browseBtn = findViewById(R.id.browseBtn);
+        Button browseBtn = findViewById(R.id.browseBtn);
         browseBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openBrowse();
             }
         });
-        btnLogout = findViewById(R.id.btnLogout);
+        Button btnLogout = findViewById(R.id.btnLogout);
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -73,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
                 openNewPlan();
             }
         });
-        aboutBtn = findViewById(R.id.aboutBtn);
+        Button aboutBtn = findViewById(R.id.aboutBtn);
         aboutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -108,8 +105,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void setUIText(){
         fbAuth = FirebaseAuth.getInstance();
-        fbData = FirebaseDatabase.getInstance();
-        dbRef = fbData.getReference("Users").child(fbAuth.getUid());  // Gets a reference of the user's info from the "Users" branch of the database.
+        FirebaseDatabase fbData = FirebaseDatabase.getInstance();
+        DatabaseReference dbRef = fbData.getReference("Users").child(fbAuth.getUid());  // Gets a reference of the user's info from the "Users" branch of the database.
         txtCurrentUser = findViewById(R.id.txtCurrentUser);
         dbRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -126,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this,"Couldn't connect to database. Please check your connection.",Toast.LENGTH_SHORT).show();
             }
         });
-        txtUid = findViewById(R.id.txtUid);
+        TextView txtUid = findViewById(R.id.txtUid);
         txtUid.setText(" UserID: " + fbAuth.getUid());
     }
 }

@@ -57,13 +57,11 @@ public class Plan implements Serializable {
         } else{
             score = (upvotes/votes)*100;
         }
-        return;
     }
     public void upVote(){
         votes++;
         upvotes++;
         score = (upvotes/votes)*100;
-        return;
     }
 
 }

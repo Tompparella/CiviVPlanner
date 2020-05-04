@@ -22,9 +22,7 @@ import java.util.Random;
 
 public class Verification extends AppCompatActivity {
 
-    private TextView codeTxt;
     private EditText codeEdit;
-    private Button submitBtn;
     private String verification_code;
 
     @Override
@@ -35,12 +33,12 @@ public class Verification extends AppCompatActivity {
         setViews();
     }
     private void setViews(){
-        codeTxt = findViewById(R.id.codeTxt);
+        TextView codeTxt = findViewById(R.id.codeTxt);
         verification_code = getRandString();
         codeTxt.setText(verification_code);
 
         codeEdit = findViewById(R.id.codeEdit);
-        submitBtn = findViewById(R.id.submitBtn);
+        Button submitBtn = findViewById(R.id.submitBtn);
         submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

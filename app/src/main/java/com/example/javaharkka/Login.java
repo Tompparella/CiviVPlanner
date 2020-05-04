@@ -40,25 +40,21 @@ import java.io.InputStreamReader;
 
 public class Login extends AppCompatActivity {
 
-    private TextView userRegister;
     private FirebaseAuth fbAuth;
-    private FirebaseDatabase fbData;
     private DatabaseReference dbRef;
     private EditText userEmail, userPswrd;
-    private Button btnLogin;
-    private String fileName = "userInfo.txt";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        btnLogin = findViewById(R.id.btnLogin);
+        Button btnLogin = findViewById(R.id.btnLogin);
         userEmail = findViewById(R.id.etEmail);
         userPswrd = findViewById(R.id.etPassword);
 
         fbAuth = FirebaseAuth.getInstance();
-        fbData = FirebaseDatabase.getInstance();
+        FirebaseDatabase fbData = FirebaseDatabase.getInstance();
         dbRef = fbData.getReference("Users/"+fbAuth.getUid());
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
@@ -86,7 +82,7 @@ public class Login extends AppCompatActivity {
                 finish();
                 startActivity(new Intent(Login.this, Verification.class));
         }
-        userRegister = findViewById(R.id.txtRegister);
+        TextView userRegister = findViewById(R.id.txtRegister);
         userRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -144,6 +140,7 @@ public class Login extends AppCompatActivity {
         String text = uId + "," + userName + ", ,";
         FileOutputStream fs;
         try {
+            String fileName = "userInfo.txt";
             fs = openFileOutput(fileName, MODE_PRIVATE);
             fs.write(text.getBytes());
             fs.close();

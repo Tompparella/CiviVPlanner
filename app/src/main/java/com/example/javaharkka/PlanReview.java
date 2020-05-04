@@ -27,7 +27,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseException;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -47,7 +46,6 @@ public class PlanReview extends AppCompatActivity {
     private Button techPathBtn, policyPathBtn, deleteBtn;
 
     private FirebaseAuth fbAuth;
-    private FirebaseDatabase fbData;
     private DatabaseReference dbRef;
 
     @Override
@@ -57,7 +55,7 @@ public class PlanReview extends AppCompatActivity {
 
         try {
             fbAuth = FirebaseAuth.getInstance();
-            fbData = FirebaseDatabase.getInstance();
+            FirebaseDatabase fbData = FirebaseDatabase.getInstance();
             dbRef = fbData.getReference("Plans");
             System.out.println("Toimii");
         } catch (Exception e){

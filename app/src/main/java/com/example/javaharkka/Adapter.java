@@ -33,10 +33,11 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView techView, numView;
-        public ImageView deleteImage;
+        TextView techView;
+        TextView numView;
+        ImageView deleteImage;
 
-        public ViewHolder(@NonNull View itemView, final OnItemClickListener listener)
+        ViewHolder(@NonNull View itemView, final OnItemClickListener listener)
         {
             super(itemView);
             techView = itemView.findViewById(R.id.planName);

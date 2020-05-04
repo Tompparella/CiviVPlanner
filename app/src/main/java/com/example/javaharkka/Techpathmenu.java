@@ -26,7 +26,6 @@ public class Techpathmenu extends AppCompatActivity implements View.OnClickListe
     private Plan plan;
     private TextView counter;
     private String techName;
-    private EntryItem tech;
 
     private Button pottery,anihusb,archery,bronze,calendar,masonry,mining,sailing,wheel,trapping,writing,construction,
             currency,drama,engineering,horseback,iron,math,optics,philosophy,chivalry,civil,compass,education,guilds
@@ -308,7 +307,7 @@ public class Techpathmenu extends AppCompatActivity implements View.OnClickListe
                 break;
         }
         Button temp = findViewById(v.getId());
-        tech = new EntryItem(techName,plan.techOrder.size() + 1);
+        EntryItem tech = new EntryItem(techName, plan.techOrder.size() + 1);
 
         addTech(tech);
 

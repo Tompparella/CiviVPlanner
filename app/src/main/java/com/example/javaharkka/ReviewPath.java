@@ -22,15 +22,9 @@ import java.util.ArrayList;
 
 public class ReviewPath extends AppCompatActivity {
 
-    private RecyclerView recyclerView;
-    private Adapter_tech techAdapter;
-    private Adapter_policy policyAdapter;
-    private RecyclerView.LayoutManager layoutManager;
     private ArrayList<PolicyItem> policyList = new ArrayList<>();
     private ArrayList<EntryItem> techList = new ArrayList<>();
     private boolean isTechPath; // Boolean value that decides whether the user wants to inspect policies or technologies.
-    private ImageButton returnBtn;
-    private TextView pathTxt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +40,7 @@ public class ReviewPath extends AppCompatActivity {
             policyList = (ArrayList<PolicyItem>) intent.getSerializableExtra("pols");
         }
 
-        returnBtn = findViewById(R.id.returnBtn);
+        ImageButton returnBtn = findViewById(R.id.returnBtn);
         returnBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -58,16 +52,16 @@ public class ReviewPath extends AppCompatActivity {
     }
 
     private void buildRecView() {
-        recyclerView = findViewById(R.id.base);
-        layoutManager = new LinearLayoutManager(this);
-        pathTxt = findViewById(R.id.pathTxt);
+        RecyclerView recyclerView = findViewById(R.id.base);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+        TextView pathTxt = findViewById(R.id.pathTxt);
         if (isTechPath){
-            techAdapter = new Adapter_tech(techList);
+            Adapter_tech techAdapter = new Adapter_tech(techList);
             recyclerView.setLayoutManager(layoutManager);
             recyclerView.setAdapter(techAdapter);
             pathTxt.setText("Tech path");
         } else {
-            policyAdapter = new Adapter_policy(policyList);
+            Adapter_policy policyAdapter = new Adapter_policy(policyList);
             recyclerView.setLayoutManager(layoutManager);
             recyclerView.setAdapter(policyAdapter);
             pathTxt.setText("Policy path");

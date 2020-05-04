@@ -34,12 +34,8 @@ import java.util.Comparator;
 import java.util.Iterator;
 
 public class BrowsePlans extends AppCompatActivity {
-    private RecyclerView recyclerView;
-    private Adapter_browse recyclerAdapter;
-    private RecyclerView.LayoutManager layoutManager;
     private Plan plan;
     private ArrayList<Plan> entryList = new ArrayList<>(), tempList;
-    private FirebaseDatabase fbData;
     private DatabaseReference dbRef;
 
 
@@ -49,7 +45,7 @@ public class BrowsePlans extends AppCompatActivity {
         setContentView(R.layout.activity_browse_plans);
 
         try {
-            fbData = FirebaseDatabase.getInstance();
+            FirebaseDatabase fbData = FirebaseDatabase.getInstance();
             dbRef = fbData.getReference("Plans");
         } catch (Exception e){
             Toast.makeText(this, "Error connecting to database",Toast.LENGTH_SHORT).show();
@@ -63,9 +59,9 @@ public class BrowsePlans extends AppCompatActivity {
     }
 
     private void buildRecView(){
-        recyclerView = findViewById(R.id.base);
-        layoutManager = new LinearLayoutManager(this);
-        recyclerAdapter = new Adapter_browse(entryList);
+        RecyclerView recyclerView = findViewById(R.id.base);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+        Adapter_browse recyclerAdapter = new Adapter_browse(entryList);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(recyclerAdapter);
 

@@ -30,8 +30,6 @@ public class Policypath extends AppCompatActivity implements View.OnClickListene
             consul, scholas, culdip, mercon, aesthetics, culce, fine, flour, artist, cultur, commerce, wagon, mercar, entre,
             mercant, protect, exploration, mariinf, navtrad, navischo, mernavy, trefle, rationalism, secul, humanism, free,
             sover, scienre;
-    private Button freedomBtn, autocracyBtn,orderBtn;
-    private PolicyItem item;
 
     private View.OnClickListener listener = new View.OnClickListener() {    // Add a listener for the ideology buttons. Also proceeds to the next activity.
         @Override
@@ -103,9 +101,9 @@ public class Policypath extends AppCompatActivity implements View.OnClickListene
             }
         });
 
-        freedomBtn = findViewById(R.id.freedomBtn);
-        autocracyBtn = findViewById(R.id.autocracyBtn);
-        orderBtn = findViewById(R.id.orderBtn);
+        Button freedomBtn = findViewById(R.id.freedomBtn);
+        Button autocracyBtn = findViewById(R.id.autocracyBtn);
+        Button orderBtn = findViewById(R.id.orderBtn);
         freedomBtn.setOnClickListener(listener);
         autocracyBtn.setOnClickListener(listener);
         orderBtn.setOnClickListener(listener);
@@ -450,7 +448,7 @@ public class Policypath extends AppCompatActivity implements View.OnClickListene
         Button temp = findViewById(v.getId());
         temp.setText(String.valueOf(count));
         temp.setBackgroundColor(Color.parseColor("#5122FF00"));     // The policy is added to the list and the entry is colored to signal this.
-        item = new PolicyItem(policyName,count,pType);
+        PolicyItem item = new PolicyItem(policyName, count, pType);
 
         addPolicy(item);
 
