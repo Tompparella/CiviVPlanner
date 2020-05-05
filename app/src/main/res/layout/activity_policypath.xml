@@ -8,11 +8,11 @@
 
     <HorizontalScrollView
         android:id="@+id/horizontalScrollView"
-        android:layout_width="393dp"
-        android:layout_height="484dp"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
         android:clipToPadding="true"
+        app:layout_constraintBottom_toTopOf="@+id/autocracyBtn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/policypathText">
 
@@ -22,7 +22,7 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="485dp">
 
                 <Button
                     android:id="@+id/btnLiberty"
@@ -761,16 +761,14 @@
                 <ImageView
                     android:id="@+id/imageView"
                     android:layout_width="797dp"
-                    android:layout_height="478dp"
-                    android:layout_marginStart="1dp"
-                    android:layout_marginLeft="1dp"
-                    android:layout_marginTop="3dp"
-                    android:layout_marginBottom="3dp"
+                    android:layout_height="0dp"
                     android:adjustViewBounds="true"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0"
                     app:srcCompat="@drawable/policytree" />
 
                 <Button
@@ -856,7 +854,7 @@
         android:id="@+id/returnButton"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:background="#FFFFFF"
+        android:background="#00FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.044"
@@ -912,42 +910,43 @@
         android:fontFamily="casual"
         android:text="Choose\nideology"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
 
     <Button
         android:id="@+id/freedomBtn"
-        android:layout_width="55dip"
-        android:layout_height="55dip"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:background="@drawable/freedom_icon"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.216"
+        app:layout_constraintEnd_toStartOf="@+id/autocracyBtn"
+        app:layout_constraintHorizontal_bias="0.701"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView"
-        app:layout_constraintVertical_bias="0.25" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.994" />
 
     <Button
         android:id="@+id/autocracyBtn"
-        android:layout_width="55dip"
-        android:layout_height="55dip"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:background="@drawable/fascism_icon"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.541"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView"
-        app:layout_constraintVertical_bias="0.25" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.998" />
 
     <Button
         android:id="@+id/orderBtn"
-        android:layout_width="55dip"
-        android:layout_height="55dip"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:background="@drawable/communist_icon"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.783"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintStart_toEndOf="@+id/autocracyBtn"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.996" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

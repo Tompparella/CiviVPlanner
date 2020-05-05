@@ -66,7 +66,9 @@ public class Techpath extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 1 && resultCode == RESULT_OK) {
             plan = (Plan) data.getExtras().getSerializable("plan");
-            entryList = plan.techOrder;
+            if(plan.techOrder.size() != 0) {
+                entryList = plan.techOrder;
+            }
             buildRecView();
         }
     }

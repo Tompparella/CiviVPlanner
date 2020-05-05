@@ -3,32 +3,33 @@
     package="com.example.javaharkka">
 
     <application
+        android:hardwareAccelerated="false"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Verification"/>
-        <activity android:name=".About" />
-        <activity android:name=".ReviewPath" />
-        <activity android:name=".PlanReview" />
-        <activity android:name=".Register" />
-        <activity android:name=".Login">
+        <activity android:name="com.example.javaharkka.Verification"/>
+        <activity android:name="com.example.javaharkka.About" />
+        <activity android:name="com.example.javaharkka.ReviewPath" />
+        <activity android:name="com.example.javaharkka.PlanReview" />
+        <activity android:name="com.example.javaharkka.Register" />
+        <activity android:name="com.example.javaharkka.Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Planname" />
-        <activity android:name=".Description" />
-        <activity android:name=".Policypath" />
-        <activity android:name=".Techpathmenu" />
-        <activity android:name=".OrientationActivity" />
-        <activity android:name=".Techpath" />
-        <activity android:name=".BrowsePlans" />
-        <activity android:name=".MainActivity" />
+        <activity android:name="com.example.javaharkka.Planname" />
+        <activity android:name="com.example.javaharkka.Description" />
+        <activity android:name="com.example.javaharkka.Policypath" />
+        <activity android:name="com.example.javaharkka.Techpathmenu" />
+        <activity android:name="com.example.javaharkka.OrientationActivity" />
+        <activity android:name="com.example.javaharkka.Techpath" />
+        <activity android:name="com.example.javaharkka.BrowsePlans" />
+        <activity android:name="com.example.javaharkka.MainActivity" />
     </application>
 
 </manifest>

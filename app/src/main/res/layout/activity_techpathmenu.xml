@@ -19,7 +19,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="310dp"
         android:layout_marginRight="310dp"
-        android:background="#FFFFFF"
+        android:background="#00FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.39"
@@ -66,17 +66,23 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="5227dp"
-                android:layout_height="586dp">
+                android:layout_height="match_parent">
 
                 <ImageView
                     android:id="@+id/imageView4"
                     android:layout_width="5222dp"
-                    android:layout_height="585dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginBottom="1dp"
                     android:adjustViewBounds="true"
-                    android:cropToPadding="false"
+                    android:cropToPadding="true"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/techtree" />
+                    android:background="@drawable/techtree"
+                    />
 
                 <Button
                     android:id="@+id/futureBtn"

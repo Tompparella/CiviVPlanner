@@ -58,7 +58,7 @@ public class BrowsePlans extends AppCompatActivity {
 
     }
 
-    private void buildRecView(){
+    private void buildRecView(){            // This method builds the recyclerview containing all of the entries in seperate cardviews. Similar methods are used in all recyclerviews in the program.
         RecyclerView recyclerView = findViewById(R.id.base);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         Adapter_browse recyclerAdapter = new Adapter_browse(entryList);
@@ -144,7 +144,7 @@ public class BrowsePlans extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Log.w("Failed to read value.", databaseError.toException());
+                Log.w("Stopped reading data.", databaseError.toException());
             }
         });
     }

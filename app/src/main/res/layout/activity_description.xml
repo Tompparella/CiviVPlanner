@@ -10,7 +10,7 @@
         android:id="@+id/returnButton"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:background="#FFFFFF"
+        android:background="#00FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.045"
@@ -21,8 +21,8 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="228dp"
-        android:layout_height="85dp"
+        android:layout_width="233dp"
+        android:layout_height="48dp"
         android:fontFamily="casual"
         android:text="Explain your plan:"
         android:textSize="24sp"
@@ -35,8 +35,13 @@
 
     <ScrollView
         android:id="@+id/scrollView2"
-        android:layout_width="375sp"
+        android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
         app:layout_constraintBottom_toTopOf="@+id/nextButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

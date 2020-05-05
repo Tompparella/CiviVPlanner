@@ -2,7 +2,8 @@
 CiviVPlanner; Android Studio; Tommi Kunnari; Users.class;
 
 This is the class that stores user information. It's stored
-in the database and accessed seldomly.
+in the database and accessed seldomly. Variables and methods
+are public to allows firebase to process it's objects.
 */
 
 package com.example.javaharkka;

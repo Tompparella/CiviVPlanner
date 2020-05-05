@@ -35,7 +35,7 @@ public class Description extends AppCompatActivity {
 
     }
     private void openNext(){
-        if ((dTxt.getText().toString().length() > 20) || dTxt.getText().toString().length() < 300) {
+        if ((dTxt.getText().toString().length() > 20) && dTxt.getText().toString().length() < 1000) {
             plan.description = dTxt.getText().toString();
             plan.printTechs();
             Intent intent = new Intent(Description.this, Planname.class);

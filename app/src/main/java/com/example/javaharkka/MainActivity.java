@@ -120,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(MainActivity.this,"Couldn't connect to database. Please check your connection.",Toast.LENGTH_SHORT).show();
+                System.out.println("Disconnected user");
             }
         });
         TextView txtUid = findViewById(R.id.txtUid);
