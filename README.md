@@ -6,7 +6,9 @@
   
   2.      Implemented features
   
-  2.      How to use (Can also be found withing the app)
+  3.      How to use (Can also be found withing the app)
+  
+  4.      Demo video (Finnish)
   
 ---------------------------------------------------------------------
 
@@ -155,6 +157,13 @@ Topic specific functions:
      About:
      
      The about page includes a short version of the documentary and userguide found here.
+     
+     
+     
+        4. Demo video
+        
+       This is a demo video made for project grading. Take a look if you like, but it's in finnish.
+       https://lut-my.sharepoint.com/:v:/g/personal/tommi_kunnari_student_lut_fi/EWYAKVqIWf1InndU5DrSq9UBnHFCJMaV19Friu1pmkpUhg?e=n8E8KF
     
     
 
